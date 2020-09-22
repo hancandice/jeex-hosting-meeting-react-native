@@ -4,7 +4,7 @@ import { Text, View, TouchableHighlight, StyleSheet } from "react-native";
 import colors from "../../styles/colors";
 export default class RoundedButton extends Component {
   render() {
-    const { text, textColor, background, handleOnPress } = this.props;
+    const { text, textColor, background, icon, handleOnPress } = this.props;
     const backgroundColor = background || "transparent";
     const color = textColor || colors.black;
     return (
@@ -12,6 +12,7 @@ export default class RoundedButton extends Component {
         style={[{ backgroundColor }, styles.wrapper]}
         onPress={handleOnPress}
       >
+        {icon}
         <Text style={[{ color }, styles.buttonText]}>{text}</Text>
       </TouchableHighlight>
     );

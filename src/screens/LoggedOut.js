@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
 import colors from "../styles/colors";
 import { StyleSheet, Text, View, Image } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 import RoundedButton from "../components/buttons/RoundedButton";
 
 export default class LoggedOut extends Component {
@@ -15,6 +16,13 @@ export default class LoggedOut extends Component {
             text="Continue with Facebook"
             textColor={colors.green01}
             background={colors.white}
+            icon={
+              <Icon
+                name="facebook"
+                size={20}
+                style={styles.facebookButtonIcon}
+              />
+            }
           />
         </View>
       </View>
@@ -46,4 +54,5 @@ const styles = StyleSheet.create({
     fontWeight: "300",
     marginBottom: 40,
   },
+  facebookButtonIcon: {},
 });
