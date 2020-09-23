@@ -65,7 +65,7 @@ export default class LoggedOut extends Component {
             </TouchableHighlight>
             <Text style={styles.termsText}>, </Text>
             <TouchableHighlight style={styles.linkButton}>
-              <Text style={styles.termsText}>Payments Terms of Services</Text>
+              <Text style={styles.termsText}>Payments Terms of Service</Text>
             </TouchableHighlight>
             <Text style={styles.termsText}>, </Text>
             <TouchableHighlight style={styles.linkButton}>
