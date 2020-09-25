@@ -36,6 +36,9 @@ export default class LogIn extends Component {
               customStyle={{ marginBottom: 30 }}
             />
           </ScrollView>
+          <View>
+            <NextArrowButton />
+          </View>
         </View>
       </KeyboardAvoidingView>
     );
