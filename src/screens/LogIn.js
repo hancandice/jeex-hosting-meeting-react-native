@@ -10,7 +10,12 @@ import {
 } from "react-native";
 import colors from "../styles/colors";
 import InputField from "../components/form/InputField";
+import NextArrowButton from "../components/buttons/NextArrowButton";
+
 export default class LogIn extends Component {
+  handleNextButton() {
+    alert("next button pressed");
+  }
   render() {
     return (
       <KeyboardAvoidingView style={styles.wrapper}>
@@ -36,8 +41,10 @@ export default class LogIn extends Component {
               customStyle={{ marginBottom: 30 }}
             />
           </ScrollView>
-          <View>
-            <NextArrowButton />
+          <View style={styles.nextButton}>
+            <NextArrowButton
+              handleNextButton={this.handleNextButton}
+            ></NextArrowButton>
           </View>
         </View>
       </KeyboardAvoidingView>
@@ -66,5 +73,10 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontWeight: "300",
     marginBottom: 40,
+  },
+  nextButton: {
+    alignItems: "flex-end",
+    right: 20,
+    bottom: 20,
   },
 });
