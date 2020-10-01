@@ -103,5 +103,3 @@ const styles = StyleSheet.create({
     top: 10,
   },
 });
-
-/* React Native provides two complementary animation systems: Animated for granular and interactive control of specific values, and LayoutAnimation for animated global layout transactions. */
