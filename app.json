@@ -1,12 +1,10 @@
 {
-  "name": "jeexbnb",
-  "displayName": "jeexbnb",
+  "name": "jeex",
+  "displayName": "jeex",
   "expo": {
-    "name": "jeexbnb",
-    "slug": "jeexbnb",
+    "name": "jeex",
+    "slug": "jeex",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"]
   }
 }
