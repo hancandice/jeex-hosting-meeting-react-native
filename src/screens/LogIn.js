@@ -72,7 +72,7 @@ export default class LogIn extends Component {
               showNotification={showNotification}
               handleCloseNotification={this.handleCloseNotification}
               type="Error"
-              firstLine="Those credentials don't look right."
+              firstLine="Those user credentials were incorrect."
               secondLine="Please try again."
             />
           </View>
