@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     height: 60,
     width: "100%",
-    paddingVertical: 10,
+    paddingVertical: 12,
     paddingHorizontal: 20,
   },
   notificationContent: {
