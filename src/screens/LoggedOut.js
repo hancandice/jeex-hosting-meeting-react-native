@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 30,
     color: colors.white,
-    fontWeight: "300",
+    fontWeight: "400",
     marginBottom: 40,
   },
   facebookButtonIcon: {

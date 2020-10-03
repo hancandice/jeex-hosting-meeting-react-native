@@ -33,22 +33,11 @@ export default class Notification extends Component {
     const { type, firstLine, secondLine, showNotification } = this.props;
     showNotification
       ? this.animatedNotification(0)
-      : this.animatedNotification(60);
+      : this.animatedNotification(-60);
     const { positionValue } = this.state;
 
     return (
-      <Animated.View
-        style={[
-          {
-            transform: [
-              {
-                translateY: positionValue,
-              },
-            ],
-          },
-          styles.wrapper,
-        ]}
-      >
+      <Animated.View style={[{ marginBottom: positionValue }, styles.wrapper]}>
         <View style={styles.notificationContent}>
           <Text style={styles.errorText}>{type}</Text>
           <Text style={styles.errorMessage}>{firstLine}</Text>
