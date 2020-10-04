@@ -9,7 +9,7 @@ export default class Notification extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      positionValue: new Animated.Value(0),
+      positionValue: new Animated.Value(-60),
     };
     this.closeNotification = this.closeNotification.bind(this);
     this.animatedNotification = this.animatedNotification.bind(this);

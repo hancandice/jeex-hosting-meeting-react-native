@@ -12,15 +12,16 @@ import colors from "../styles/colors";
 import InputField from "../components/form/InputField";
 import NextArrowButton from "../components/buttons/NextArrowButton";
 import Notification from "../components/Notification";
-
+import Loader from "../components/Loader";
 export default class LogIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      formValid: false,
+      formValid: true,
       validEmail: false,
       emailAddress: "",
       validPassword: false,
+      loadingVisible: false,
     };
     this.handleCloseNotification = this.handleCloseNotification.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -30,16 +31,19 @@ export default class LogIn extends Component {
   }
 
   handleNextButton() {
-    if (
-      this.state.emailAddress === "jeeyoung.han82@gmail.com" &&
-      this.state.validPassword
-    ) {
-      alert("Yayy success!");
-      this.setState({ formValid: true });
-    } else {
-      alert("Login failed :(");
-      this.setState({ formValid: false });
-    }
+    this.setState({ loadingVisible: true });
+    setTimeout(() => {
+      if (
+        this.state.emailAddress === "jeeyoung.han82@gmail.com" &&
+        this.state.validPassword
+      ) {
+        alert("Yayy success!");
+        this.setState({ formValid: true, loadingVisible: false });
+      } else {
+        alert("Login failed :(");
+        this.setState({ formValid: false, loadingVisible: false });
+      }
+    }, 3000);
   }
 
   handleCloseNotification() {
@@ -83,7 +87,7 @@ export default class LogIn extends Component {
   }
 
   render() {
-    const { formValid } = this.state;
+    const { formValid, loadingVisible } = this.state;
     const showNotification = formValid ? false : true;
     const background = formValid ? colors.green01 : colors.darkOrange;
     const notificationMarginTop = showNotification ? 10 : 0;
@@ -137,6 +141,7 @@ export default class LogIn extends Component {
             />
           </View>
         </View>
+        <Loader modalVisible={loadingVisible} animationType="fade" />
       </KeyboardAvoidingView>
     );
   }
@@ -172,6 +177,5 @@ const styles = StyleSheet.create({
   notificationWrapper: {
     position: "absolute",
     bottom: 0,
-    zIndex: 999,
   },
 });
