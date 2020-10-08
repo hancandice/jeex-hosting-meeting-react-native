@@ -15,6 +15,8 @@ export default class ForgotPassword extends Component {
       emailAddress: "",
       loadingVisible: false,
     };
+    this.handleEmailChange = this.handleEmailChange.bind(this); // In JavaScript, class methods are not bound by default. Needs binding the scope of current object to the method.
+    this.moveToNextStep = this.moveToNextStep.bind(this);
   }
 
   handleEmailChange(email) {
@@ -31,10 +33,31 @@ export default class ForgotPassword extends Component {
       }
     }
   }
-
+  moveToNextStep() {
+    this.setState({ loadingVisible: true });
+    // For simulating slow server :)
+    setTimeout(() => {
+      if (this.state.emailAddress === "wrong@email.com") {
+        this.setState({
+          loadingVisible: false,
+          formValid: false,
+        });
+      } else {
+        this.setState({
+          loadingVisible: false,
+          formValid: true,
+        });
+      }
+    }, 2000);
+  }
   render() {
+    const { loadingVisible, formValid } = this.state;
+    const background = formValid ? colors.green01 : colors.darkOrange;
     return (
-      <KeyboardAvoidingView style={styles.wrapper} behavior="padding">
+      <KeyboardAvoidingView
+        style={[{ backgroundColor: background }, styles.wrapper]}
+        behavior="padding"
+      >
         <View style={styles.form}>
           <Text style={styles.forgotPasswordHeading}>Forgot Password ?</Text>
           <Text style={styles.forgotPasswordSubheading}>
@@ -53,6 +76,10 @@ export default class ForgotPassword extends Component {
             autoCapitalize={false}
           />
         </View>
+        <View style={styles.nextButtonWrapper}>
+          <NextArrowButton handleNextButton={this.moveToNextStep} />
+        </View>
+        <Loader modalVisible={loadingVisible} animationType="fade" />
       </KeyboardAvoidingView>
     );
   }
@@ -64,7 +91,6 @@ const styles = StyleSheet.create({
   wrapper: {
     display: "flex",
     flex: 1,
-    backgroundColor: colors.green01,
   },
   form: {
     marginTop: 90,
@@ -83,5 +109,10 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginTop: 10,
     marginBottom: 60,
+  },
+  nextButtonWrapper: {
+    alignItems: "flex-end",
+    right: 20,
+    bottom: 20,
   },
 });
