@@ -17,6 +17,7 @@ export default class ForgotPassword extends Component {
     };
     this.handleEmailChange = this.handleEmailChange.bind(this); // In JavaScript, class methods are not bound by default. Needs binding the scope of current object to the method.
     this.moveToNextStep = this.moveToNextStep.bind(this);
+    this.handleCloseNotification = this.handleCloseNotification.bind(this);
   }
 
   handleEmailChange(email) {
@@ -50,9 +51,15 @@ export default class ForgotPassword extends Component {
       }
     }, 2000);
   }
+  handleCloseNotification() {
+    this.setState({
+      formValid: true,
+    });
+  }
   render() {
-    const { loadingVisible, formValid } = this.state;
+    const { loadingVisible, formValid, validEmail } = this.state;
     const background = formValid ? colors.green01 : colors.darkOrange;
+    const showNotification = formValid ? false : true;
     return (
       <KeyboardAvoidingView
         style={[{ backgroundColor: background }, styles.wrapper]}
@@ -74,10 +81,23 @@ export default class ForgotPassword extends Component {
             onChangeText={this.handleEmailChange}
             autoFocus={true}
             autoCapitalize={false}
+            showCheckmark={validEmail}
           />
         </View>
         <View style={styles.nextButtonWrapper}>
-          <NextArrowButton handleNextButton={this.moveToNextStep} />
+          <NextArrowButton
+            handleNextButton={this.moveToNextStep}
+            disabled={!validEmail}
+          />
+        </View>
+        <View>
+          <Notification
+            showNotification={showNotification}
+            handleCloseNotification={this.handleCloseNotification}
+            type="Error"
+            firstLine="No account matches the requested"
+            secondLine="email address. Please try again."
+          />
         </View>
         <Loader modalVisible={loadingVisible} animationType="fade" />
       </KeyboardAvoidingView>
