@@ -149,6 +149,3 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
 });
-
-/* Next To Do 
-- Redux setup
