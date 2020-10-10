@@ -1,0 +1,33 @@
+리액트로만 프로젝트를 진행하게 될 경우 우리의 어플리케이션은 local state, 그리고 global state를 관리하기 어렵다.
+리덕스를 사용하게 되면 하나의 store를 통해 global state을 포함한 모든 state를 저장, 유지할 수 있게 되며, 원하는 Component로만 data를 전달할 수 있게 되어 이러한 문제가 해결된다.
+Flux 구조 : Action => Dispatcher => Store => View => Action again
+Redux 기본 개념
+
+1. Actions : The way to send data to store in app 
+    - action의 type은 일반적으로 문자열 상수로 정의된다. 정의된 action type은 action creators(액션 생성자)를 통해 사용된다.
+    - ex. function addTodo(text) {
+        return {
+            type: ADD_TODO,
+            text
+        }
+    }
+
+2. Reducers : action을 통해 어떠한 행동을 정의했다면, 그 결과 어플리케이션의 상태가 어떻게 바뀌는지 특정하게 되는 함수이다.    
+    function todoApp(state = initialState, action) {
+        switch (action.type) {
+        case SET_VISIBILITY_FILTER:
+            return Object.assign({}, state, {
+            visibilityFilter: action.filter
+            });
+        default:
+            return state
+        }
+    }
+    리듀서 함수에서는 action의 type에 따라 변화된 state를 반환하게 된다.
+
+3. Store : “무엇이 일어날지”를 나타내는 action, 그리고 action에 따라 상태를 수정하는 reducer를 저장하는 어플리케이션에 있는 단 하나의 객체이다. 
+    import { createStore } from 'redux';
+    import todoApp from './reducers';
+
+    let store = createStore(todoApp);
+    이처럼 store을 생성하고 reducer을 연결하여 어플리케이션에 연결하게 된다.
