@@ -1,5 +1,3 @@
-// FIX Type error: cannot call a class as a function
-
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -42,7 +40,7 @@ class LogIn extends Component {
 
     setTimeout(() => {
       const { emailAddress, password } = this.state;
-      if (LogIn(emailAddress, password)) {
+      if (this.props.logIn(emailAddress, password)) {
         this.setState({ formValid: true, loadingVisible: false });
       } else {
         this.setState({ formValid: false, loadingVisible: false });
@@ -97,6 +95,7 @@ class LogIn extends Component {
     const showNotification = formValid ? false : true;
     const background = formValid ? colors.green01 : colors.darkOrange;
     const notificationMarginTop = showNotification ? 10 : 0;
+    // console.log(this.props.loggedInStatus);
     return (
       <KeyboardAvoidingView
         style={[{ backgroundColor: background }, styles.wrapper]}
@@ -182,11 +181,14 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state) => ({
-  loggedInStatus: state.loggedInStatus,
-});
+const mapStateToProps = (state) => {
+  return {
+    loggedInStatus: state.loggedInStatus,
+  };
+};
 
-const mapDispatchToProps = (dispatch) =>
-  bindActionCreators(ActionCreators, dispatch);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(ActionCreators, dispatch);
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
