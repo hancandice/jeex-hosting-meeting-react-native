@@ -1,3 +1,5 @@
+// FIX Type error: cannot call a class as a function
+
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -8,18 +10,23 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
 } from "react-native";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { ActionCreators } from "../redux/actions";
 import colors from "../styles/colors";
 import InputField from "../components/form/InputField";
 import NextArrowButton from "../components/buttons/NextArrowButton";
 import Notification from "../components/Notification";
 import Loader from "../components/Loader";
-export default class LogIn extends Component {
+
+class LogIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
       formValid: true,
       validEmail: false,
       emailAddress: "",
+      password: "",
       validPassword: false,
       loadingVisible: false,
     };
@@ -32,11 +39,10 @@ export default class LogIn extends Component {
 
   handleNextButton() {
     this.setState({ loadingVisible: true });
+
     setTimeout(() => {
-      if (
-        this.state.emailAddress === "jeeyoung.han82@gmail.com" &&
-        this.state.validPassword
-      ) {
+      const { emailAddress, password } = this.state;
+      if (LogIn(emailAddress, password)) {
         this.setState({ formValid: true, loadingVisible: false });
       } else {
         this.setState({ formValid: false, loadingVisible: false });
@@ -66,7 +72,9 @@ export default class LogIn extends Component {
   }
 
   handlePasswordChange(password) {
-    if (!this.state.validPassword) {
+    const { validPassword } = this.state;
+    this.setState({ password });
+    if (!validPassword) {
       if (password.length > 7) {
         // password has to be at least 8 characters long
         this.setState({ validPassword: true });
@@ -173,3 +181,12 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
 });
+
+const mapStateToProps = (state) => ({
+  loggedInStatus: state.loggedInStatus,
+});
+
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(ActionCreators, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
