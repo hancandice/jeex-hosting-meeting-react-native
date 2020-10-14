@@ -195,3 +195,5 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
+
+// Bug: showNotification is too slow !
