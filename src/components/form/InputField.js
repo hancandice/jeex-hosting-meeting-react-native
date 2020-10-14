@@ -113,7 +113,7 @@ InputField.propTypes = {
   onChangeText: PropTypes.func,
   showCheckmark: PropTypes.bool.isRequired,
   autoFocus: PropTypes.bool,
-  autoCapitalize: PropTypes.bool,
+  autoCapitalize: PropTypes.string,
 };
 
 const styles = StyleSheet.create({

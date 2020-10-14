@@ -41,7 +41,10 @@ class LogIn extends Component {
     setTimeout(() => {
       const { emailAddress, password } = this.state;
       if (this.props.logIn(emailAddress, password)) {
-        this.setState({ formValid: true, loadingVisible: false });
+        this.setState({
+          formValid: true,
+          loadingVisible: false,
+        });
       } else {
         this.setState({ formValid: false, loadingVisible: false });
       }
@@ -115,7 +118,7 @@ class LogIn extends Component {
               onChangeText={this.handleEmailChange}
               showCheckmark={validEmail}
               autoFocus={true}
-              autoCapitalize={false}
+              autoCapitalize="none"
             />
             <InputField
               labelText="PASSWORD"

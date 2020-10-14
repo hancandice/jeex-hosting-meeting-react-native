@@ -90,7 +90,7 @@ export default class ForgotPassword extends Component {
                 inputType="email"
                 onChangeText={this.handleEmailChange}
                 autoFocus={true}
-                autoCapitalize={false}
+                autoCapitalize="none"
                 showCheckmark={validEmail}
               />
             </View>
