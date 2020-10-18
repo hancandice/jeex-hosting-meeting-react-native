@@ -37,14 +37,12 @@ class LogIn extends Component {
 
   handleNextButton() {
     this.setState({ loadingVisible: true });
+    const { logIn } = this.props;
 
     setTimeout(() => {
       const { emailAddress, password } = this.state;
-      if (this.props.logIn(emailAddress, password)) {
-        this.setState({
-          formValid: true,
-          loadingVisible: false,
-        });
+      if (logIn(emailAddress, password)) {
+        this.setState({ formValid: true, loadingVisible: false });
       } else {
         this.setState({ formValid: false, loadingVisible: false });
       }
