@@ -38,10 +38,10 @@ class LogIn extends Component {
   handleNextButton() {
     this.setState({ loadingVisible: true });
     const { logIn } = this.props;
-
     setTimeout(() => {
       const { emailAddress, password } = this.state;
-      if (logIn(emailAddress, password)) {
+      const response = logIn(emailAddress, password);
+      if (response) {
         this.setState({ formValid: true, loadingVisible: false });
       } else {
         this.setState({ formValid: false, loadingVisible: false });
