@@ -27,7 +27,7 @@ export default class LoggedOut extends Component {
       <View style={styles.wrapper}>
         <View style={styles.welcomeWrapper}>
           <Image source={require("../img/jeex-logo.png")} style={styles.logo} />
-          <Text style={styles.welcomeText}>Welcome to Jeex.</Text>
+          <Text style={styles.welcomeText}>Welcome to LINKEY.</Text>
           <RoundedButton
             text="Continue with Facebook"
             textColor={colors.green01}
@@ -59,7 +59,7 @@ export default class LoggedOut extends Component {
               By tapping Continue, Create Account or More
             </Text>
             <Text style={styles.termsText}>options, </Text>
-            <Text style={styles.termsText}>I agree to Jeex's </Text>
+            <Text style={styles.termsText}>I agree to LINKEY's </Text>
             <TouchableHighlight style={styles.linkButton}>
               <Text style={styles.termsText}>Terms of Service</Text>
             </TouchableHighlight>
