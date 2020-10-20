@@ -1,4 +1,4 @@
-import * as types from "./types";
+import * as types from "../constants";
 import user from "../../data/user.json";
 
 export function logIn(email, password) {
@@ -19,3 +19,5 @@ export function setLoggedInState(loggedInState) {
     loggedInState,
   };
 }
+
+// create action => create reducer => create a store => then connect the React Native application to the Redux store 
