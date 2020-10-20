@@ -8,6 +8,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import LoggedOut from "./src/screens/LoggedOut";
 import LogIn from "./src/screens/LogIn";
 import ForgotPassword from "./src/screens/ForgotPassword";
+import LoggedIn from "./src/screens/LoggedIn";
 import { create } from "react-test-renderer";
 import { transparentHeaderStyle } from "./src/styles/navigation";
 import colors from "./src/styles/colors";
@@ -34,6 +35,11 @@ export default class App extends Component {
               name="ForgotPassword"
               component={ForgotPassword}
               options={ForgotPassword.navigationOptions}
+            />
+            <Stack.Screen
+              name="LoggedIn"
+              component={LoggedIn}
+              options={LoggedIn.navigationOptions}
             />
           </Stack.Navigator>
         </NavigationContainer>

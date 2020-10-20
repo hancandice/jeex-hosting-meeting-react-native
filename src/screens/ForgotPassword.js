@@ -11,6 +11,7 @@ import InputField from "../components/form/InputField";
 import Notification from "../components/Notification";
 import NextArrowButton from "../components/buttons/NextArrowButton";
 import Loader from "../components/Loader";
+import NavBarButton from "../components/buttons/NavBarButton";
 
 export default class ForgotPassword extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -18,6 +19,14 @@ export default class ForgotPassword extends Component {
     borderBottomWidth: 0,
     headerTransparent: true,
     headerTintColor: colors.white,
+    headerRight: () => (
+      <NavBarButton
+        location="right"
+        color={colors.white}
+        text="Logged In Page"
+        handleButtonPress={() => navigation.navigate("LoggedIn")}
+      />
+    ),
   });
   constructor(props) {
     super(props);
