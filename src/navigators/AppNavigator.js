@@ -1,7 +1,5 @@
-// react-navigation library & react-navigation-redux-helpers => to connect the navigation to the redux store.
 // 1. stack navigator - when the user is logged out
 // 2. tab navigator - when the user logged in
-// create a reducer to change screen
 
 // import React from "react";
 // import PropTypes from "prop-types";
