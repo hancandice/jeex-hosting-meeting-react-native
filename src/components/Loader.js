@@ -16,7 +16,7 @@ export default class Loader extends Component {
           <View style={styles.loaderContainer}>
             <Image
               style={styles.loaderImage}
-              source={require("../img/loading2.gif")}
+              source={require("../img/linkey-loading-big.gif")}
             />
           </View>
         </View>

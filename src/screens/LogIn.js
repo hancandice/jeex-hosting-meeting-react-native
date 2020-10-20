@@ -7,6 +7,7 @@ import {
   ScrollView,
   StyleSheet,
   KeyboardAvoidingView,
+  Button,
 } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -16,8 +17,23 @@ import InputField from "../components/form/InputField";
 import NextArrowButton from "../components/buttons/NextArrowButton";
 import Notification from "../components/Notification";
 import Loader from "../components/Loader";
+import NavBarButton from "../components/buttons/NavBarButton";
 
 class LogIn extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: "",
+    borderBottomWidth: 0,
+    headerTransparent: true,
+    headerTintColor: colors.white,
+    headerRight: () => (
+      <NavBarButton
+        location="right"
+        color={colors.white}
+        text="Forgot Password?"
+        handleButtonPress={() => navigation.navigate("ForgotPassword")}
+      />
+    ),
+  });
   constructor(props) {
     super(props);
     this.state = {
@@ -97,6 +113,7 @@ class LogIn extends Component {
     const background = formValid ? colors.green01 : colors.darkOrange;
     const notificationMarginTop = showNotification ? 10 : 0;
     // console.log(this.props.loggedInStatus);
+
     return (
       <KeyboardAvoidingView
         style={[{ backgroundColor: background }, styles.wrapper]}

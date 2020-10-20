@@ -13,6 +13,12 @@ import NextArrowButton from "../components/buttons/NextArrowButton";
 import Loader from "../components/Loader";
 
 export default class ForgotPassword extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: "",
+    borderBottomWidth: 0,
+    headerTransparent: true,
+    headerTintColor: colors.white,
+  });
   constructor(props) {
     super(props);
     this.state = {

@@ -1,18 +1,35 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
 import colors from "../styles/colors";
+import { transparentHeaderStyle } from "../styles/navigation";
 import {
   StyleSheet,
   Text,
   View,
   Image,
   TouchableHighlight,
+  Button,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import RoundedButton from "../components/buttons/RoundedButton";
-import { Colors } from "react-native/Libraries/NewAppScreen";
+import NavBarButton from "../components/buttons/NavBarButton";
 
 export default class LoggedOut extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: "",
+    borderBottomWidth: 0,
+    headerTransparent: true,
+    headerTintColor: colors.white,
+    headerRight: () => (
+      <NavBarButton
+        location="right"
+        color={colors.white}
+        text="Log In"
+        handleButtonPress={() => navigation.navigate("Login")}
+      />
+    ),
+  });
+
   onFacebookPress() {
     alert("Facebook button pressed");
   }
@@ -22,11 +39,12 @@ export default class LoggedOut extends Component {
   onMoreOptionsPress() {
     alert("More Options button pressed");
   }
+
   render() {
     return (
       <View style={styles.wrapper}>
         <View style={styles.welcomeWrapper}>
-          <Image source={require("../img/jeex-logo.png")} style={styles.logo} />
+          <Image source={require("../img/linkey.png")} style={styles.logo} />
           <Text style={styles.welcomeText}>Welcome to LINKEY.</Text>
           <RoundedButton
             text="Continue with Facebook"
@@ -96,10 +114,10 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   logo: {
-    width: 50,
-    height: 50,
+    width: 70,
+    height: 70,
     marginTop: 50,
-    marginBottom: 40,
+    marginBottom: 20,
   },
   welcomeText: {
     fontSize: 30,
