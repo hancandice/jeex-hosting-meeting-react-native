@@ -2,23 +2,18 @@ import React, { Component } from "react";
 import colors from "../styles/colors";
 import { transparentHeaderStyle } from "../styles/navigation";
 import LoggedInTabNavigator from "../navigators/LoggedInTabNavigator";
+import NavBarButton from "../components/buttons/NavBarButton";
 
-/*   static navigationOptions = ({ navigation }) => ({
+export default class LoggedIn extends Component {
+  static navigationOptions = () => ({
     title: "",
     borderBottomWidth: 0,
     headerTransparent: true,
     headerTintColor: colors.white,
-    headerRight: () => (
-      <NavBarButton
-        location="right"
-        color={colors.white}
-        text="Log In"
-        handleButtonPress={() => navigation.navigate("Login")}
-      />
-    ),
-  }); */
+    headerLeft: null,
+    gestureEnabled: false,
+  });
 
-export default class LoggedIn extends Component {
   render() {
     return <LoggedInTabNavigator />;
   }

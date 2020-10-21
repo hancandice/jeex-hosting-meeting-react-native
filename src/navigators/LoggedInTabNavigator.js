@@ -29,7 +29,7 @@ export default function LoggedInTabNavigator() {
           } else if (route.name === "Saved") {
             iconName = focused ? "md-add-circle" : "md-add-circle-outline";
           } else if (route.name === "Trips") {
-            iconName = focused ? "ios-walk" : "ios-body";
+            iconName = focused ? "ios-body" : "ios-walk";
           }
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;

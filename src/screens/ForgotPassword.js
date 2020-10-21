@@ -19,14 +19,14 @@ export default class ForgotPassword extends Component {
     borderBottomWidth: 0,
     headerTransparent: true,
     headerTintColor: colors.white,
-    headerRight: () => (
-      <NavBarButton
-        location="right"
-        color={colors.white}
-        text="Logged In Page"
-        handleButtonPress={() => navigation.navigate("LoggedIn")}
-      />
-    ),
+    // headerRight: () => (
+    //   <NavBarButton
+    //     location="right"
+    //     color={colors.white}
+    //     text="Logged In Page"
+    //     handleButtonPress={() => navigation.navigate("LoggedIn")}
+    //   />
+    // ),
   });
   constructor(props) {
     super(props);
