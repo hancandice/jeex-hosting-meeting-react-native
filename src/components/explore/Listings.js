@@ -16,7 +16,7 @@ export default class Listings extends Component {
   renderListings() {
     const { listings } = this.props;
     return listings.map((listing, index) => (
-      <TouchableHighlight style={styles.card}>
+      <TouchableHighlight style={styles.card} key={`listing-${index}`}>
         <View style={styles.cardContent}>
           <Image
             style={styles.image}

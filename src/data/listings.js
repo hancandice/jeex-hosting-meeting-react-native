@@ -74,7 +74,7 @@ const listings = [
       {
         id: 7,
         photo: require("./photos/listing7.jpeg"),
-        title: "바비걸(트레이닝복/댄스복 전문)",
+        title: "바비걸(트레이닝복/요가복 전문)",
         header:
           "신상 및 인기 상품 재입고 완료! 최고급 원단으로 자체 제작합니다.",
         price: 72,
@@ -150,7 +150,7 @@ const listings = [
         title: "RESERVATION",
         header: "멍멍이 파라다이스",
         price: 34,
-        priceType: "per piece",
+        priceType: "per counter",
         stars: 0,
       },
       {
