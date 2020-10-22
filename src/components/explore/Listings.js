@@ -30,11 +30,14 @@ export default class Listings extends Component {
   }
 
   render() {
-    const { title } = this.props;
+    const { title, boldTitle } = this.props;
+    const titleStyle = boldTitle
+      ? { fontSize: 22, fontWeight: "600" }
+      : { fontSize: 18 };
     return (
       <View style={styles.wrapper}>
         <View style={styles.titleWrapper}>
-          <Text style={styles.title}>{title}</Text>
+          <Text style={[titleStyle, styles.title]}>{title}</Text>
           <TouchableOpacity style={styles.seeAllBtn}>
             <Text style={styles.seeAllBtnText}>See all</Text>
             <Icon name="angle-right" size={18} color={colors.grey04} />
