@@ -1,15 +1,53 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import colors from "../styles/colors";
+import SearchBar from "../components/SearchBar";
+import Categories from "../components/explore/Categories";
+import Listings from "../components/explore/Listings";
+import categoriesList from "../data/categories";
+import { ScrollView } from "react-native-gesture-handler";
+import listings from "../data/listings";
 
-export default class InboxContainer extends Component {
+export default class ExploreContainer extends Component {
   static navigationOptions = {
     tabBarLabel: "EXPLORE",
   };
+
+  renderListings() {
+    return listings.map((listing, index) => (
+      <View key={`listing-${index}`}>
+        <Listings
+          key={`listing-item-${index}`}
+          title={listing.title}
+          boldTitle={listing.boldTitle}
+          showAddToFav={listing.showAddToFav}
+          listings={listing.listings}
+        />
+      </View>
+    ));
+  }
+
   render() {
     return (
       <View style={styles.wrapper}>
-        <Text>Explore Container</Text>
+        <SearchBar />
+        <ScrollView
+          contentContainerStyle={styles.scrollViewContent}
+          style={styles.scrollView}
+        >
+          <View style={styles.headingWrapper}>
+            <Text style={styles.heading}>Explore</Text>
+            <Image
+              source={require("../img/linkey_logo_kr.png")}
+              style={styles.headingLogo}
+            />
+          </View>
+          <View style={styles.categories}>
+            <Categories categories={categoriesList} />
+          </View>
+          {this.renderListings()}
+        </ScrollView>
       </View>
     );
   }
@@ -17,7 +55,35 @@ export default class InboxContainer extends Component {
 
 const styles = StyleSheet.create({
   wrapper: {
+    flex: 1,
+    backgroundColor: colors.white,
+  },
+  scrollViewContent: {
+    paddingBottom: 80,
+  },
+  scrollView: {
+    paddingTop: 100,
+  },
+  headingWrapper: {
     display: "flex",
-    padding: 50,
+    flexDirection: "row",
+  },
+  heading: {
+    fontSize: 22,
+    fontWeight: "600",
+    paddingLeft: 20,
+    paddingBottom: 20,
+    color: colors.black02,
+  },
+  headingLogo: {
+    position: "absolute",
+    left: 105,
+    bottom: 25,
+    width: 65,
+    height: 17,
+  },
+  categories: {
+    marginTop: 5,
+    marginBottom: 40,
   },
 });

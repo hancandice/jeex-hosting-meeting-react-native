@@ -92,7 +92,7 @@ export default class TurnOnNotifications extends Component {
             style={[
               {
                 backgroundColor: pressSkipBtn
-                  ? colors.lightGrey2 // underlayColor 속성값이 우선적으로 적용
+                  ? colors.lightGrey02 // underlayColor 속성값이 우선적으로 적용
                   : "transparent",
               },
               styles.skipButton,
@@ -100,7 +100,7 @@ export default class TurnOnNotifications extends Component {
             onPress={() => this.props.navigation.dispatch(navigateToTabsAction)}
             onShowUnderlay={this.handleSkipBtnShowUnderlay}
             onHideUnderlay={this.handleSkipBtnHideUnderlay}
-            underlayColor={colors.lightGrey2}
+            underlayColor={colors.lightGrey02}
           >
             <Text style={[styles.buttonText, { color: colors.green01 }]}>
               Skip

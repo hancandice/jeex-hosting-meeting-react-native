@@ -1,5 +1,6 @@
 export default {
   black: "#000000",
+  black02: "#171717",
   white: "#ffffff",
   // green01: "#3D6647",
   green01: "#6B52AE",
@@ -7,8 +8,11 @@ export default {
   pink01: "#F4F1F1",
   darkOrange: "#C53925",
   lightGrey: "#d8d8d8",
-  lightGrey2: "#dddddd",
-  lightGrey3: "#F2F2F2",
+  lightGrey02: "#dddddd",
+  lightGrey03: "#F2F2F2",
   tomato: "tomato",
   grey: "grey",
+  grey02: "#919191",
+  grey03: "#b3b3b3",
+  grey04: "#484848",
 };

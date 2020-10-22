@@ -21,7 +21,7 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Home">
+          <Stack.Navigator initialRouteName="LoggedOut">
             <Stack.Screen
               name="Home"
               component={LoggedOut}

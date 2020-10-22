@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-export default class InboxContainer extends Component {
+export default class ProfileContainer extends Component {
   static navigationOptions = {
     tabBarLabel: "PROFILE",
   };
