@@ -13,6 +13,7 @@ const listing12Photo = require("./photos/listing12.jpeg");
 const listing13Photo = require("./photos/listing13.jpeg");
 const listing14Photo = require("./photos/listing14.jpeg");
 const listing15Photo = require("./photos/listing15.jpeg");
+const listing16Photo = require("./photos/listing16.jpeg");
 
 const listings = [
   {
@@ -174,6 +175,15 @@ const listings = [
         header: "고마워플라워",
         price: 46,
         priceType: "per piece",
+        stars: 0,
+      },
+      {
+        id: 16,
+        photo: listing16Photo,
+        title: "RESERVATION",
+        header: "마미손브런치",
+        price: 22,
+        priceType: "per person",
         stars: 0,
       },
     ],
