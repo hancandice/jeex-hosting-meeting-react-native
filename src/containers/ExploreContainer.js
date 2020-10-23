@@ -8,6 +8,7 @@ import Listings from "../components/explore/Listings";
 import categoriesList from "../data/categories";
 import { ScrollView } from "react-native-gesture-handler";
 import listings from "../data/listings";
+import { StatusBar } from "react-native";
 
 export default class ExploreContainer extends Component {
   static navigationOptions = {
@@ -29,6 +30,7 @@ export default class ExploreContainer extends Component {
   }
 
   render() {
+    StatusBar.setBarStyle("dark-content", true);
     return (
       <View style={styles.wrapper}>
         <SearchBar />

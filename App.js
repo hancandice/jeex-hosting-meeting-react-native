@@ -13,15 +13,17 @@ import TurnOnNotifications from "./src/screens/TurnOnNotifications";
 import { create } from "react-test-renderer";
 import { transparentHeaderStyle } from "./src/styles/navigation";
 import colors from "./src/styles/colors";
+import { StatusBar } from "react-native";
 
 const Stack = createStackNavigator();
 
 export default class App extends Component {
   render() {
+    StatusBar.setBarStyle("light-content", true);
     return (
       <Provider store={store}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="LoggedIn">
+          <Stack.Navigator initialRouteName="LoggedOut">
             <Stack.Screen
               name="Home"
               component={LoggedOut}

@@ -66,5 +66,5 @@ const styles = StyleSheet.create({
 HeartButton.propTypes = {
   color: PropTypes.string.isRequired,
   selectedColor: PropTypes.string.isRequired,
-  itemId: PropTypes.number.isRequired,
+  //   itemId: PropTypes.number.isRequired,
 };

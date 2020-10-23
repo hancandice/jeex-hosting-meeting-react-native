@@ -7,6 +7,7 @@ import { NavigationActions } from "@react-navigation/compat";
 import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { color } from "react-native-reanimated";
+import { StatusBar } from "react-native";
 
 const navigateToTabsAction = NavigationActions.navigate({
   routeName: "LoggedIn",
@@ -60,6 +61,7 @@ export default class TurnOnNotifications extends Component {
   }
 
   render() {
+    StatusBar.setBarStyle("dark-content", true);
     const { pressNotifyBtn, pressSkipBtn } = this.state;
     return (
       <View style={styles.wrapper}>

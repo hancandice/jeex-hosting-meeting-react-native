@@ -37,13 +37,14 @@ export default class Listings extends Component {
   renderListings() {
     const { listings, showAddToFav } = this.props;
     return listings.map((listing, index) => (
-      <TouchableHighlight style={styles.card} key={`listing-${index}`}>
-        <View style={styles.cardContent}>
+      <TouchableHighlight style={styles.card} key={`list-${index}`}>
+        <View style={styles.cardContent} key={`list-item-${index}`}>
           {showAddToFav ? (
-            <View style={styles.addToFavoriteBtn}>
+            <View style={styles.addToFavoriteBtn} key={`addToFavBtn-${index}`}>
               <HeartButton
                 color={colors.white}
                 selectedColor={colors.darkOrange}
+                key={`heartBtn-item-${index}`}
               />
             </View>
           ) : null}
@@ -51,17 +52,32 @@ export default class Listings extends Component {
             style={styles.image}
             resizeMode="contain"
             source={listing.photo}
+            key={`img-item-${index}`}
           />
-          <Text style={[{ color: this.randomColor }, styles.listingTitle]}>
+          <Text
+            style={[{ color: this.randomColor }, styles.listingTitle]}
+            key={`listingTitle-${index}`}
+          >
             {listing.title}
           </Text>
-          <Text style={styles.listingHeader} numberOfLines={2}>
+          <Text
+            style={styles.listingHeader}
+            numberOfLines={2}
+            key={`listingHeader-${index}`}
+          >
             {listing.header}
           </Text>
-          <Text style={styles.listingPrice}>
+          <Text style={styles.listingPrice} key={`listingPrice-${index}`}>
             {listing.price}€ {listing.priceType}
           </Text>
-          <Stars votes={listing.stars} size={10} color={colors.green02} />
+          {listing.stars > 0 ? (
+            <Stars
+              votes={listing.stars}
+              size={10}
+              color={colors.green02}
+              key={`listingStar-${index}`}
+            />
+          ) : null}
         </View>
       </TouchableHighlight>
     ));
