@@ -10,6 +10,7 @@ import {
   Image,
   StyleSheet,
 } from "react-native";
+import HeartButton from "../buttons/HeartButton";
 import colors from "../../styles/colors";
 
 export default class Listings extends Component {
@@ -33,10 +34,15 @@ export default class Listings extends Component {
   }
 
   renderListings() {
-    const { listings } = this.props;
+    const { listings, showAddToFav } = this.props;
     return listings.map((listing, index) => (
       <TouchableHighlight style={styles.card} key={`listing-${index}`}>
         <View style={styles.cardContent}>
+          {showAddToFav ? (
+            <View style={styles.addToFavoriteBtn}>
+              <HeartButton color={colors.white} selectedColor={colors.tomato} />
+            </View>
+          ) : null}
           <Image
             style={styles.image}
             resizeMode="contain"
@@ -135,5 +141,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.grey04,
     marginTop: 2,
+  },
+  addToFavoriteBtn: {
+    position: "absolute",
+    right: 12,
+    top: 7,
+    zIndex: 2,
   },
 });
