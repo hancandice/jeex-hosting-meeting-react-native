@@ -13,6 +13,25 @@ import {
 import colors from "../../styles/colors";
 
 export default class Listings extends Component {
+  constructor(props) {
+    super(props);
+    this.renderListings = this.renderListings.bind(this);
+  }
+
+  get randomColor() {
+    const colorsList = [
+      colors.grey04,
+      colors.darkOrange,
+      colors.black,
+      colors.brown01,
+      colors.blue,
+      colors.brown02,
+      colors.green01,
+      colors.green02,
+    ];
+    return colorsList[Math.floor(Math.random() * colorsList.length)];
+  }
+
   renderListings() {
     const { listings } = this.props;
     return listings.map((listing, index) => (
@@ -23,7 +42,12 @@ export default class Listings extends Component {
             resizeMode="contain"
             source={listing.photo}
           />
-          <Text>{listing.header}</Text>
+          <Text style={[{ color: this.randomColor }, styles.listingTitle]}>
+            {listing.title}
+          </Text>
+          <Text style={styles.listingHeader} numberOfLines={2}>
+            {listing.header}
+          </Text>
         </View>
       </TouchableHighlight>
     ));
@@ -85,6 +109,7 @@ const styles = StyleSheet.create({
   scrollView: {
     marginTop: 20,
     marginLeft: 15,
+    marginBottom: 40,
   },
   card: {
     marginRight: 6,
@@ -100,5 +125,15 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 5,
     marginBottom: 7,
+  },
+  listingTitle: {
+    fontWeight: "700",
+    fontSize: 12,
+  },
+  listingHeader: {
+    fontWeight: "700",
+    fontSize: 14,
+    color: colors.grey04,
+    marginTop: 2,
   },
 });
