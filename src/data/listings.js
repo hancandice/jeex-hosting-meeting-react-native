@@ -174,7 +174,7 @@ const listings = [
         title: "RESERVATION",
         header: "고마워플라워",
         price: 46,
-        priceType: "per piece",
+        priceType: "per bunch",
         stars: 0,
       },
       {
@@ -183,7 +183,7 @@ const listings = [
         title: "RESERVATION",
         header: "마미손브런치",
         price: 22,
-        priceType: "per person",
+        priceType: "per dish",
         stars: 0,
       },
     ],

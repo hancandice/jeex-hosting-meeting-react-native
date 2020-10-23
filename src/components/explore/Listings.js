@@ -11,6 +11,7 @@ import {
   StyleSheet,
 } from "react-native";
 import HeartButton from "../buttons/HeartButton";
+import Stars from "../Stars";
 import colors from "../../styles/colors";
 
 export default class Listings extends Component {
@@ -40,7 +41,10 @@ export default class Listings extends Component {
         <View style={styles.cardContent}>
           {showAddToFav ? (
             <View style={styles.addToFavoriteBtn}>
-              <HeartButton color={colors.white} selectedColor={colors.tomato} />
+              <HeartButton
+                color={colors.white}
+                selectedColor={colors.darkOrange}
+              />
             </View>
           ) : null}
           <Image
@@ -54,6 +58,10 @@ export default class Listings extends Component {
           <Text style={styles.listingHeader} numberOfLines={2}>
             {listing.header}
           </Text>
+          <Text style={styles.listingPrice}>
+            {listing.price}€ {listing.priceType}
+          </Text>
+          <Stars votes={listing.stars} size={10} color={colors.green02} />
         </View>
       </TouchableHighlight>
     ));
@@ -147,5 +155,12 @@ const styles = StyleSheet.create({
     right: 12,
     top: 7,
     zIndex: 2,
+  },
+  listingPrice: {
+    color: colors.grey04,
+    marginTop: 4,
+    marginBottom: 2,
+    fontSize: 12,
+    fontWeight: "300",
   },
 });
