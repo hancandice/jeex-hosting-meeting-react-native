@@ -38,13 +38,12 @@ export default class Listings extends Component {
     const { listings, showAddToFav } = this.props;
     return listings.map((listing, index) => (
       <TouchableHighlight style={styles.card} key={`list-${index}`}>
-        <View style={styles.cardContent} key={`list-item-${index}`}>
+        <View style={styles.cardContent}>
           {showAddToFav ? (
-            <View style={styles.addToFavoriteBtn} key={`addToFavBtn-${index}`}>
+            <View style={styles.addToFavoriteBtn}>
               <HeartButton
                 color={colors.white}
                 selectedColor={colors.darkOrange}
-                key={`heartBtn-item-${index}`}
               />
             </View>
           ) : null}
@@ -52,31 +51,18 @@ export default class Listings extends Component {
             style={styles.image}
             resizeMode="contain"
             source={listing.photo}
-            key={`img-item-${index}`}
           />
-          <Text
-            style={[{ color: this.randomColor }, styles.listingTitle]}
-            key={`listingTitle-${index}`}
-          >
+          <Text style={[{ color: this.randomColor }, styles.listingTitle]}>
             {listing.title}
           </Text>
-          <Text
-            style={styles.listingHeader}
-            numberOfLines={2}
-            key={`listingHeader-${index}`}
-          >
+          <Text style={styles.listingHeader} numberOfLines={2}>
             {listing.header}
           </Text>
-          <Text style={styles.listingPrice} key={`listingPrice-${index}`}>
+          <Text style={styles.listingPrice}>
             {listing.price}€ {listing.priceType}
           </Text>
           {listing.stars > 0 ? (
-            <Stars
-              votes={listing.stars}
-              size={10}
-              color={colors.green02}
-              key={`listingStar-${index}`}
-            />
+            <Stars votes={listing.stars} size={10} color={colors.green02} />
           ) : null}
         </View>
       </TouchableHighlight>
