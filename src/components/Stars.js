@@ -16,6 +16,7 @@ export default class Stars extends Component {
           size={size}
           color={starsNumber >= (i + 1) * 10 ? color : colors.grey03}
           style={styles.star}
+          key={`star-${i + 1}`}
         />
       );
     }
@@ -24,11 +25,11 @@ export default class Stars extends Component {
 
   render() {
     const { votes } = this.props;
-    // if (votes == "0") {
-    //   return <View key={`stars-{votes.index}`}></View>;
-    // }
+    if (votes == "0") {
+      return <View key={`stars-${votes.index}`}></View>;
+    }
     return (
-      <View style={styles.wrapper} key={`stars-{votes.index}`}>
+      <View style={styles.wrapper} key={`stars-${votes.index}`}>
         <View style={styles.stars}>{this.stars}</View>
         <Text style={styles.votesNumber}>{votes}</Text>
       </View>

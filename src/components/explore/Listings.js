@@ -61,9 +61,7 @@ export default class Listings extends Component {
           <Text style={styles.listingPrice}>
             {listing.price}€ {listing.priceType}
           </Text>
-          {listing.stars > 0 ? (
-            <Stars votes={listing.stars} size={10} color={colors.green02} />
-          ) : null}
+          <Stars votes={listing.stars} size={10} color={colors.green02} />
         </View>
       </TouchableHighlight>
     ));
