@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
+import NoResults from "../components/saved/NoResults";
+import colors from "../styles/colors";
 
 export default class SavedContainer extends Component {
   static navigationOptions = {
@@ -8,7 +10,7 @@ export default class SavedContainer extends Component {
   render() {
     return (
       <View style={styles.wrapper}>
-        <Text>Saved Container</Text>
+        <NoResults />
       </View>
     );
   }
@@ -17,6 +19,6 @@ export default class SavedContainer extends Component {
 const styles = StyleSheet.create({
   wrapper: {
     display: "flex",
-    padding: 50,
+    backgroundColor: colors.white,
   },
 });
