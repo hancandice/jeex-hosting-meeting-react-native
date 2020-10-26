@@ -19,7 +19,7 @@ const Stack = createStackNavigator();
 
 export default class App extends Component {
   render() {
-    StatusBar.setBarStyle("light-content", true);
+    // StatusBar.setBarStyle("light-content", true);
     return (
       <Provider store={store}>
         <NavigationContainer>

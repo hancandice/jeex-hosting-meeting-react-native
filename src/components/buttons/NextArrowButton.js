@@ -3,6 +3,19 @@ import { PropTypes } from "prop-types";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { TouchableHighlight, StyleSheet, Text, View } from "react-native";
 import colors from "../../styles/colors";
+import iPhoneSize from "../../helpers/utils";
+
+// =========== responsive design ============
+
+const size = iPhoneSize(); // large, small, medium
+let buttonSize = 60;
+let buttonWrapperPadding = 0;
+if (size === "small") {
+  buttonSize = 50;
+  buttonWrapperPadding = 20;
+}
+
+// =========== end of responsive design ============
 
 export default class NextArrowButton extends Component {
   render() {
@@ -39,13 +52,14 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     right: 20,
     bottom: 20,
+    paddingTop: buttonWrapperPadding,
   },
   button: {
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 50,
-    width: 60,
-    height: 60,
+    width: buttonSize,
+    height: buttonSize,
   },
   icon: {},
 });

@@ -4,6 +4,21 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Animated, { Easing } from "react-native-reanimated";
 import colors from "../styles/colors";
+import iPhoneSize from "../helpers/utils";
+
+// =========== responsive design [not applied] ============
+
+const size = iPhoneSize(); // large, small, medium
+
+let notificationWidth = "100%";
+
+if (size === "small") {
+  notificationWidth = 320;
+} else if (size === "large") {
+  notificationWidth = 414;
+}
+
+// =========== end of responsive design ============
 
 export default class Notification extends Component {
   constructor(props) {

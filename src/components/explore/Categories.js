@@ -7,10 +7,27 @@ import {
   Text,
   View,
 } from "react-native";
+import iPhoneSize from "../../helpers/utils";
+
+// =========== responsive design ============
+
+const size = iPhoneSize(); // large, small, medium
+let cardSize = 100;
+let cardMargin = 8;
+
+if (size === "small") {
+  cardSize = 90;
+  cardMargin = 4;
+} else if (size === "large") {
+  cardSize = 110;
+}
+
+// =========== end of responsive design ============
 
 export default class Categories extends Component {
   constructor(props) {
     super(props);
+    // alert(iPhoneSize());
   }
 
   get Categories() {
@@ -46,10 +63,10 @@ const styles = StyleSheet.create({
   card: {
     display: "flex",
     flexDirection: "column",
-    width: 100,
-    height: 100,
-    marginRight: 8,
-    marginLeft: 8,
+    width: cardSize,
+    height: cardSize,
+    marginRight: cardMargin,
+    marginLeft: cardMargin,
   },
   image: {
     flex: 1,

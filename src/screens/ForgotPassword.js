@@ -12,6 +12,20 @@ import Notification from "../components/Notification";
 import NextArrowButton from "../components/buttons/NextArrowButton";
 import Loader from "../components/Loader";
 import NavBarButton from "../components/buttons/NavBarButton";
+import iPhoneSize from "../helpers/utils";
+
+// =========== responsive design ============
+
+const size = iPhoneSize(); // large, small, medium
+
+let headingTextSize = 28;
+if (size === "small") {
+  headingTextSize = 22;
+} else if (size === "large") {
+  headingTextSize = 34;
+}
+
+// =========== end of responsive design ============
 
 export default class ForgotPassword extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -72,6 +86,7 @@ export default class ForgotPassword extends Component {
       }
     }, 2000);
   }
+
   handleCloseNotification() {
     this.setState({
       formValid: true,
@@ -148,7 +163,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   forgotPasswordHeading: {
-    fontSize: 28,
+    fontSize: headingTextSize,
     color: colors.white,
     fontWeight: "300",
   },

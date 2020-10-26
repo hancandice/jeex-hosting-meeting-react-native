@@ -13,6 +13,22 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome";
 import RoundedButton from "../components/buttons/RoundedButton";
 import NavBarButton from "../components/buttons/NavBarButton";
+import iPhoneSize from "../helpers/utils";
+
+// =========== responsive design ============
+
+const size = iPhoneSize(); // large, small, medium
+let termsTextSize = 13;
+let headingTextSize = 30;
+if (size === "small") {
+  termsTextSize = 12;
+  headingTextSize = 26;
+} else if (size === "large") {
+  termsTextSize = 14;
+  headingTextSize = 34;
+}
+
+// =========== end of responsive design ============
 
 export default class LoggedOut extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -120,7 +136,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   welcomeText: {
-    fontSize: 30,
+    fontSize: headingTextSize,
     color: colors.white,
     fontWeight: "400",
     marginBottom: 40,
@@ -146,7 +162,7 @@ const styles = StyleSheet.create({
   },
   termsText: {
     color: colors.white,
-    fontSize: 13,
+    fontSize: termsTextSize,
     fontWeight: "600",
   },
   linkButton: {

@@ -18,6 +18,20 @@ import NextArrowButton from "../components/buttons/NextArrowButton";
 import Notification from "../components/Notification";
 import Loader from "../components/Loader";
 import NavBarButton from "../components/buttons/NavBarButton";
+import iPhoneSize from "../helpers/utils";
+
+// =========== responsive design ============
+
+const size = iPhoneSize(); // large, small, medium
+
+let headingTextSize = 34;
+if (size === "small") {
+  headingTextSize = 28;
+} else if (size === "large") {
+  headingTextSize = 40;
+}
+
+// =========== end of responsive design ============
 
 class LogIn extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -60,10 +74,16 @@ class LogIn extends Component {
       const { emailAddress, password } = this.state;
       const response = logIn(emailAddress, password);
       if (response) {
-        this.setState({ formValid: true, loadingVisible: false });
+        this.setState({
+          loadingVisible: false,
+          formValid: true,
+        });
         navigate("TurnOnNotifications");
       } else {
-        this.setState({ formValid: false, loadingVisible: false });
+        this.setState({
+          loadingVisible: false,
+          formValid: false,
+        });
       }
     }, 3000);
   }
@@ -191,7 +211,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   loginHeader: {
-    fontSize: 34,
+    fontSize: headingTextSize,
     color: colors.white,
     fontWeight: "300",
     marginBottom: 40,
