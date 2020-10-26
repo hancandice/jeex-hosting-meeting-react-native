@@ -23,7 +23,8 @@ export default class NoResults extends Component {
             준비할 수는 있죠.
           </Text>
           <Text style={styles.description}>
-            EXPLORE 탭에서 가게의 우측 상단 하트를 꾹 ♥️ 눌러 당신만의{" "}
+            <Text style={styles.highlightedDescription}>EXPLORE 탭</Text>에서
+            가게의 우측 상단 하트를 꾹 ♥️ 눌러 당신만의{" "}
             <Text style={styles.highlightedDescription}>관심 가게 리스트</Text>
             를 만들 수 있어요.
           </Text>
