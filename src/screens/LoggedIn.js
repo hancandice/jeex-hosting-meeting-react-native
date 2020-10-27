@@ -12,6 +12,7 @@ export default class LoggedIn extends Component {
     headerTintColor: colors.white,
     headerLeft: null,
     gestureEnabled: false,
+    elevation: 0,
   });
 
   render() {

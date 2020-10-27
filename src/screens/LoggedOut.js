@@ -8,6 +8,8 @@ import {
   View,
   Image,
   TouchableHighlight,
+  TouchableOpacity,
+  ScrollView,
   Button,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -36,6 +38,7 @@ export default class LoggedOut extends Component {
     borderBottomWidth: 0,
     headerTransparent: true,
     headerTintColor: colors.white,
+    elevation: 0,
     headerRight: () => (
       <NavBarButton
         location="right"
@@ -58,7 +61,7 @@ export default class LoggedOut extends Component {
 
   render() {
     return (
-      <View style={styles.wrapper}>
+      <ScrollView style={styles.wrapper}>
         <View style={styles.welcomeWrapper}>
           <Image source={require("../img/linkey.png")} style={styles.logo} />
           <Text style={styles.welcomeText}>Welcome to LINKEY.</Text>
@@ -81,18 +84,19 @@ export default class LoggedOut extends Component {
             handleOnPress={this.onCreateAccountPress}
           />
 
-          <TouchableHighlight
+          <TouchableOpacity
             style={styles.moreOptionsButton}
             onPress={this.onMoreOptionsPress}
+            activeOpacity={0.7}
           >
             <Text style={styles.moreOptionsButtonText}>More options</Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
 
           <View style={styles.termsAndConditions}>
             <Text style={styles.termsText}>
               By tapping Continue, Create Account or More
             </Text>
-            <Text style={styles.termsText}>options, </Text>
+            <Text style={styles.termsText}> options, </Text>
             <Text style={styles.termsText}>I agree to LINKEY's </Text>
             <TouchableHighlight style={styles.linkButton}>
               <Text style={styles.termsText}>Terms of Service</Text>
@@ -112,7 +116,7 @@ export default class LoggedOut extends Component {
             <Text style={styles.termsText}>.</Text>
           </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }

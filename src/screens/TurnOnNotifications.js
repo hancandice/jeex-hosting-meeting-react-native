@@ -21,6 +21,7 @@ export default class TurnOnNotifications extends Component {
     headerTintColor: colors.white,
     headerLeft: null,
     gestureEnabled: false,
+    elevation: 0,
   });
 
   constructor(props) {

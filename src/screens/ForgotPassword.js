@@ -33,6 +33,7 @@ export default class ForgotPassword extends Component {
     borderBottomWidth: 0,
     headerTransparent: true,
     headerTintColor: colors.white,
+    elevation: 0,
     // headerRight: () => (
     //   <NavBarButton
     //     location="right"
@@ -129,17 +130,18 @@ export default class ForgotPassword extends Component {
             handleNextButton={this.moveToNextStep}
             disabled={!validEmail}
           />
-          <View style={styles.notificationWrapper}>
-            <Notification
-              showNotification={showNotification}
-              handleCloseNotification={this.handleCloseNotification}
-              type="Error"
-              firstLine="No account matches the requested"
-              secondLine="email address. Please try again."
-            />
-          </View>
         </View>
+
         <Loader modalVisible={loadingVisible} animationType="fade" />
+        <View style={styles.notificationWrapper}>
+          <Notification
+            showNotification={showNotification}
+            handleCloseNotification={this.handleCloseNotification}
+            type="Error"
+            firstLine="No account matches the requested"
+            secondLine="email address. Please try again."
+          />
+        </View>
       </KeyboardAvoidingView>
     );
   }
@@ -155,6 +157,12 @@ const styles = StyleSheet.create({
   scrollViewWrapper: {
     marginTop: 70,
     flex: 1,
+    padding: 0,
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
   },
   scrollView: {
     paddingLeft: 30,

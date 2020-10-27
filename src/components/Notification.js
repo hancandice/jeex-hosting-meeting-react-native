@@ -79,6 +79,7 @@ Notification.propTypes = {
 
 const styles = StyleSheet.create({
   wrapper: {
+    flex: 1, // flex to rescure
     backgroundColor: colors.white,
     height: 60,
     width: "100%",
