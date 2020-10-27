@@ -17,12 +17,12 @@ export default class HeartButton extends Component {
     this.setState(
       {
         addedToFavorite: !this.state.addedToFavorite,
-      },
-      () => {
-        onPress && onPress();
       }
+      // () => {
+      //   onPress && onPress();
+      // }
     );
-    // onPress();
+    onPress();
   }
 
   render() {
