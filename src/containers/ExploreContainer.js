@@ -15,6 +15,15 @@ export default class ExploreContainer extends Component {
     tabBarLabel: "EXPLORE",
   };
 
+  constructor(props) {
+    super(props);
+    this.handleAddToFav = this.handleAddToFav.bind(this);
+  }
+  handleAddToFav() {
+    const { navigate } = this.props.navigation;
+    navigate("CreateList");
+  }
+
   renderListings() {
     return listings.map((listing, index) => (
       <View key={`listing-${index}`}>
@@ -24,6 +33,7 @@ export default class ExploreContainer extends Component {
           boldTitle={listing.boldTitle}
           showAddToFav={listing.showAddToFav}
           listings={listing.listings}
+          handleAddToFav={this.handleAddToFav}
         />
       </View>
     ));

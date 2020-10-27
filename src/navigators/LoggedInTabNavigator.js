@@ -14,7 +14,6 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { color } from "react-native-reanimated";
 
 const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
 
 export default function LoggedInTabNavigator() {
   return (
@@ -47,6 +46,21 @@ export default function LoggedInTabNavigator() {
         component={ExploreContainer}
         options={ExploreContainer.navigationOptions}
       />
+      {/* <Tab.Screen
+        name="Create"
+        component={CreateNewPlaceholder}
+        options={{
+          tabBarIcon: (props) => (
+            <Ionicons name="ios-add" size={props.size} color={props.color} />
+          ),
+        }}
+        listeners={({ navigation }) => ({
+          tabPress: (event) => {
+            event.preventDefault();
+            navigation.navigate("CreateList");
+          },
+        })}
+      /> */}
       <Tab.Screen
         name="Saved"
         component={SavedContainer}
