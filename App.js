@@ -24,7 +24,7 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <NavigationContainer>
-          <RootStack.Navigator initialRouteName="LoggedOut">
+          <RootStack.Navigator initialRouteName="LoggedOut" mode="modal">
             <RootStack.Screen
               name="Home"
               component={LoggedOut}
