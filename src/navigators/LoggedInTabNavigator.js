@@ -2,7 +2,9 @@ import * as React from "react";
 import { Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 import ExploreContainer from "../containers/ExploreContainer";
+import ExploreStackNav from "./ExploreStackNav";
 import InboxContainer from "../containers/InboxContainer";
 import ProfileContainer from "../containers/ProfileContainer";
 import SavedContainer from "../containers/SavedContainer";
@@ -12,10 +14,10 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { color } from "react-native-reanimated";
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default function LoggedInTabNavigator() {
   return (
-    // <NavigationContainer>
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, size, color }) => {
@@ -31,7 +33,6 @@ export default function LoggedInTabNavigator() {
           } else if (route.name === "Trips") {
             iconName = focused ? "ios-body" : "ios-walk";
           }
-          // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
         },
       })}
@@ -67,6 +68,5 @@ export default function LoggedInTabNavigator() {
         options={ProfileContainer.navigationOptions}
       />
     </Tab.Navigator>
-    // </NavigationContainer>
   );
 }

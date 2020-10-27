@@ -4,6 +4,7 @@ import {
   Text,
   ScrollView,
   StyleSheet,
+  Platform,
   KeyboardAvoidingView,
 } from "react-native";
 import colors from "../styles/colors";
@@ -158,11 +159,9 @@ const styles = StyleSheet.create({
     marginTop: 70,
     flex: 1,
     padding: 0,
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
+    ...Platform.select({
+      android: { position: "absolute", left: 0, right: 0, top: 0, bottom: 0 },
+    }),
   },
   scrollView: {
     paddingLeft: 30,

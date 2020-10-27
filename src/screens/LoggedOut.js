@@ -94,9 +94,9 @@ export default class LoggedOut extends Component {
 
           <View style={styles.termsAndConditions}>
             <Text style={styles.termsText}>
-              By tapping Continue, Create Account or More
+              By tapping Continue, Create Account or{" "}
             </Text>
-            <Text style={styles.termsText}> options, </Text>
+            <Text style={styles.termsText}>More options, </Text>
             <Text style={styles.termsText}>I agree to LINKEY's </Text>
             <TouchableHighlight style={styles.linkButton}>
               <Text style={styles.termsText}>Terms of Service</Text>
