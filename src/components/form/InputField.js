@@ -51,7 +51,7 @@ export default class InputField extends Component {
       showCheckmark,
       autoFocus,
       autoCapitalize,
-      // value,
+      value,
       placeholder,
     } = this.props;
     const { secureInput, scaleCheckmarkValue } = this.state;
@@ -108,7 +108,7 @@ export default class InputField extends Component {
           autoCapitalize={autoCapitalize}
           autoCorrect={false}
           underlineColorAndroid="transparent"
-          // value={value || ""}
+          value={value || null}
           placeholder={placeholder}
         />
       </View>
@@ -131,7 +131,7 @@ InputField.propTypes = {
   labelTextWeight: PropTypes.string,
   inputStyle: PropTypes.object,
   placeholder: PropTypes.string,
-  // value: PropTypes.string,
+  value: PropTypes.string,
 };
 
 const styles = StyleSheet.create({

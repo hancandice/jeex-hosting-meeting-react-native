@@ -98,6 +98,7 @@ const listings = [
         title: "바비걸(트레이닝복/요가복 전문)",
         header:
           "신상 및 인기 상품 재입고 완료! 최고급 원단으로 자체 제작합니다.",
+        location: "반여2동, 해운대구",
         price: 72,
         priceType: "per piece",
         stars: 101,
@@ -108,6 +109,7 @@ const listings = [
         title: "소녀감성",
         header:
           "톡톡하고 부드러운 면소재 티셔츠 전문점. 한 번만 입고 만 사람 없다는 그 집!",
+        location: "반여1동, 해운대구",
         price: 18,
         priceType: "per piece",
         stars: 119,
@@ -118,6 +120,7 @@ const listings = [
         title: "말미잘봉봉",
         header:
           "말미잘봉봉 레이스원피스 재입고. 넘나 이쁜데 달리 설명할 길이 없네 💕",
+        location: "좌동, 해운대구",
         price: 152,
         priceType: "per piece",
         stars: 320,
@@ -127,6 +130,7 @@ const listings = [
         photo: listing10Photo,
         title: "신발콩콩",
         header: "여성 워커힐, 단화, 부츠 전문점 🍁 가을 신상 입고 🍂",
+        location: "사직동, 동래구",
         price: 79,
         priceType: "per piece",
         stars: 300,
@@ -136,6 +140,7 @@ const listings = [
         photo: listing11Photo,
         title: "다파라가방",
         header: "마진 생각 없이 팝니다. 사가면 그냥 🐶이득",
+        location: "범천1동, 진구",
         price: 12,
         priceType: "per piece",
         stars: 57,

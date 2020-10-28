@@ -11,6 +11,7 @@ import colors from "../styles/colors";
 import InputField from "../components/form/InputField";
 import { TouchableHighlight } from "react-native-gesture-handler";
 import RadioInput from "../components/form/RadioInput";
+
 export default class CreateList extends Component {
   static navigationOptions = ({ navigation }) => ({
     animationEnabled: true,
@@ -33,8 +34,14 @@ export default class CreateList extends Component {
     super(props);
     this.state = {
       privacyOption: "public",
+      //   location: props.navigation.state.params.listing.location || {},
     };
     this.selectPrivacyOption = this.selectPrivacyOption.bind(this);
+    this.handleLocationChange = this.handleLocationChange.bind(this);
+  }
+
+  handleLocationChange(location) {
+    this.setState({ location });
   }
 
   selectPrivacyOption(privacyOption) {
@@ -42,7 +49,7 @@ export default class CreateList extends Component {
   }
 
   render() {
-    const { privacyOption } = this.state;
+    const { privacyOption, location } = this.state;
     return (
       <View style={styles.wrapper}>
         <ScrollView style={styles.scrollView}>
@@ -55,12 +62,13 @@ export default class CreateList extends Component {
                 labelTextWeight="400"
                 labelColor={colors.grey04}
                 textColor={colors.grey04}
-                placeholder="제목을 입력하세요"
+                placeholder={location}
+                value={location}
                 showCheckmark={false}
                 borderBottomColor={colors.lightGrey04}
                 inputType="text"
                 inputStyle={styles.inputStyle}
-                autoFocus={true}
+                // autoFocus={true}
                 autoCapitalize="none"
               />
             </View>
