@@ -25,6 +25,7 @@ const listings = [
         id: 1,
         photo: listing1Photo,
         title: "이쁜손톱 네일아트",
+        location: "반여1동, 해운대구",
         header: "가을맞이 예쁜 손톱으로 꾸며보세요~ 💅🏻 젤네일 기본 30000원",
         price: 30,
         priceType: "per person",
@@ -34,6 +35,7 @@ const listings = [
         id: 2,
         photo: listing2Photo,
         title: "송정 서핑보드",
+        location: "송정동, 해운대구",
         header: "인기 강사 영입! 🌊 부산 서핑의 성지 송정에서 즐거운 파도타기",
         price: 70,
         priceType: "per person",
@@ -43,6 +45,7 @@ const listings = [
         id: 3,
         photo: listing3Photo,
         title: "프렌치 치즈 앤 와인",
+        location: "우동, 해운대구",
         header:
           "프랑스 직수입 🇫🇷 보르도 생산 와인과 노르망디 지방의 산뜻한 치즈를 맛보세요",
         price: 47,
@@ -53,6 +56,7 @@ const listings = [
         id: 4,
         photo: listing4Photo,
         title: "까꼬뽀꼬 헤어살롱",
+        location: "우동, 해운대구",
         header:
           "미용경력 30년, 센텀 까꼬뽀꼬 헤어살롱 💇🏻‍♀️ 에서 발레아쥬 염색 할인합니다.",
         price: 57,
@@ -63,6 +67,7 @@ const listings = [
         id: 5,
         photo: listing5Photo,
         title: "램브란트 미술학원",
+        location: "명륜동, 동래구",
         header:
           "미대입시 취미회화 전문 🎨 홍대 미대 출신 강사진 주말반 저녁반도 운영합니다.",
         price: 61,
@@ -73,6 +78,7 @@ const listings = [
         id: 6,
         photo: listing6Photo,
         title: "자탄풍 렌탈바이크",
+        location: "중동, 해운대구",
         header:
           "자전거, 퀵보드, 바이크 렌탈합니다. 장비부터 기초 교육까지 제공합니다. 🚲",
         price: 55,

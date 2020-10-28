@@ -10,6 +10,7 @@ export default {
   lightGrey: "#d8d8d8",
   lightGrey02: "#dddddd",
   lightGrey03: "#F2F2F2",
+  lightGrey04: "#ebebeb",
   tomato: "tomato",
   grey: "grey",
   grey02: "#919191",

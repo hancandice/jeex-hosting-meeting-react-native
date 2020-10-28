@@ -14,6 +14,7 @@ import colors from "../../styles/colors";
 
 export default class NoResults extends Component {
   render() {
+    const { handleFindStores } = this.props;
     return (
       <View>
         <ScrollView style={styles.scrollView}>
@@ -30,9 +31,12 @@ export default class NoResults extends Component {
           </Text>
         </ScrollView>
         <View style={styles.footer}>
-          <TouchableHighlight style={styles.findStoresButton}>
+          <TouchableOpacity
+            style={styles.findStoresButton}
+            onPress={handleFindStores}
+          >
             <Text style={styles.findStoresButtonText}>관심 가게 찾기</Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
       </View>
     );
