@@ -12,9 +12,11 @@ export default class HeartButton extends Component {
     this.addToFavorite = this.addToFavorite.bind(this);
   }
 
+  //================================================
   UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({ addedToFavorite: nextProps.selected });
   }
+  //================================================
 
   addToFavorite() {
     const { onPress } = this.props;

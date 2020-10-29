@@ -36,7 +36,7 @@ export default class CreateList extends Component {
     super(props);
     this.state = {
       privacyOption: "public",
-      //   location: props.navigation.state.params.listing.location || {},
+
       location: props.route.params.listing.location,
       loading: false,
     };
@@ -46,12 +46,14 @@ export default class CreateList extends Component {
     this.handleCreateList = this.handleCreateList.bind(this);
   }
 
+  //   =================================
   componentWillUnmount() {
     this.props.route.params.onCreateListClose(
       this.props.route.params.listing.id,
       this.listCreated
     );
   }
+  //   =================================
 
   handleLocationChange(location) {
     this.setState({ location });
@@ -70,7 +72,7 @@ export default class CreateList extends Component {
       this.setState({ loading: false }, () => {
         goBack();
       });
-    }, 3000);
+    }, 3500);
   }
 
   render() {
