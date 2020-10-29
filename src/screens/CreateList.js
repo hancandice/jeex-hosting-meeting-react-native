@@ -35,6 +35,7 @@ export default class CreateList extends Component {
     this.state = {
       privacyOption: "public",
       //   location: props.navigation.state.params.listing.location || {},
+      location: props.route.params.listing.location,
     };
     this.selectPrivacyOption = this.selectPrivacyOption.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);

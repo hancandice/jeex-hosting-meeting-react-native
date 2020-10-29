@@ -44,7 +44,7 @@ export default class Listings extends Component {
               <HeartButton
                 color={colors.white}
                 selectedColor={colors.darkOrange}
-                onPress={handleAddToFav}
+                onPress={() => handleAddToFav(listing)}
               />
             </View>
           ) : null}
