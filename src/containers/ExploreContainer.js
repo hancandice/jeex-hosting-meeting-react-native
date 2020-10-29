@@ -19,9 +19,10 @@ export default class ExploreContainer extends Component {
     super(props);
     this.handleAddToFav = this.handleAddToFav.bind(this);
   }
-  handleAddToFav(listing) {
+  handleAddToFav() {
+    // Navigate to the CreateList route with params
     const { navigate } = this.props.navigation;
-    navigate("CreateList", { listing });
+    navigate("CreateList");
   }
 
   renderListings() {
