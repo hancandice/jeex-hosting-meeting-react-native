@@ -5,6 +5,7 @@ import colors from "../styles/colors";
 import SearchBar from "../components/SearchBar";
 import Categories from "../components/explore/Categories";
 import Listings from "../components/explore/Listings";
+import RoundedButton from "../components/buttons/RoundedButton";
 import categoriesList from "../data/categories";
 import { ScrollView } from "react-native-gesture-handler";
 import listings from "../data/listings";
@@ -17,12 +18,39 @@ export default class ExploreContainer extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      favoriteListings: [],
+    };
+
+    this.onCreateListClose = this.onCreateListClose.bind(this);
+    this.renderListings = this.renderListings.bind(this);
     this.handleAddToFav = this.handleAddToFav.bind(this);
   }
   handleAddToFav(listing) {
     // Navigate to the CreateList route with params
     const { navigate } = this.props.navigation;
-    navigate("CreateList", { listing });
+    let { favoriteListings } = this.state;
+    const index = favoriteListings.indexOf(listing.id);
+    if (index > -1) {
+      favoriteListings = favoriteListings.filter((item) => item !== listing.id);
+      this.setState({ favoriteListings });
+    } else {
+      navigate("CreateList", {
+        listing,
+        onCreateListClose: this.onCreateListClose,
+      });
+    }
+  }
+
+  onCreateListClose(listingId, listCreated) {
+    let { favoriteListings } = this.state;
+
+    if (listCreated) {
+      favoriteListings.push(listingId);
+    } else {
+      favoriteListings = favoriteListings.filter((item) => item !== listingId);
+    }
+    this.setState({ favoriteListings });
   }
 
   renderListings() {
@@ -35,6 +63,7 @@ export default class ExploreContainer extends Component {
           showAddToFav={listing.showAddToFav}
           listings={listing.listings}
           handleAddToFav={this.handleAddToFav}
+          favoriteListings={this.state.favoriteListings}
         />
       </View>
     ));

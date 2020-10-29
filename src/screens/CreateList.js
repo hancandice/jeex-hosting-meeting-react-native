@@ -6,11 +6,13 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import colors from "../styles/colors";
 import InputField from "../components/form/InputField";
 import { TouchableHighlight } from "react-native-gesture-handler";
 import RadioInput from "../components/form/RadioInput";
+import RoundedButton from "../components/buttons/RoundedButton";
 
 export default class CreateList extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -36,9 +38,19 @@ export default class CreateList extends Component {
       privacyOption: "public",
       //   location: props.navigation.state.params.listing.location || {},
       location: props.route.params.listing.location,
+      loading: false,
     };
+    this.listCreated = false;
     this.selectPrivacyOption = this.selectPrivacyOption.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
+    this.handleCreateList = this.handleCreateList.bind(this);
+  }
+
+  componentWillUnmount() {
+    this.props.route.params.onCreateListClose(
+      this.props.route.params.listing.id,
+      this.listCreated
+    );
   }
 
   handleLocationChange(location) {
@@ -49,8 +61,21 @@ export default class CreateList extends Component {
     this.setState({ privacyOption });
   }
 
+  handleCreateList() {
+    const { goBack } = this.props.navigation;
+    this.setState({ loading: true });
+    this.listCreated = true;
+
+    setTimeout(() => {
+      this.setState({ loading: false }, () => {
+        goBack();
+      });
+    }, 3000);
+  }
+
   render() {
-    const { privacyOption, location } = this.state;
+    const { privacyOption, location, loading } = this.state;
+
     return (
       <View style={styles.wrapper}>
         <ScrollView style={styles.scrollView}>
@@ -69,8 +94,9 @@ export default class CreateList extends Component {
                 borderBottomColor={colors.lightGrey04}
                 inputType="text"
                 inputStyle={styles.inputStyle}
-                // autoFocus={true}
+                autoFocus={true}
                 autoCapitalize="none"
+                onChangeText={this.handleLocationChange}
               />
             </View>
             <View style={styles.privacyOptions}>
@@ -125,6 +151,24 @@ export default class CreateList extends Component {
             </View>
           </View>
         </ScrollView>
+        <View style={styles.createButton}>
+          <RoundedButton
+            text="찜 하기"
+            textColor={colors.white}
+            background={colors.green01}
+            borderColor="transparent"
+            textAlign="left"
+            iconPosition="right"
+            disabled={!location}
+            loading={loading}
+            icon={
+              <View style={styles.buttonIcon}>
+                <Icon name="angle-right" color={colors.white} size={30} />
+              </View>
+            }
+            handleOnPress={this.handleCreateList}
+          />
+        </View>
       </View>
     );
   }
@@ -202,6 +246,12 @@ const styles = StyleSheet.create({
     top: 0,
     right: 0,
   },
+  createButton: {
+    position: "absolute",
+    bottom: 0,
+    right: 10,
+    width: 110,
+  },
   divider: {
     borderBottomWidth: 1,
     borderBottomColor: colors.lightGrey04,
@@ -209,5 +259,11 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 20,
     marginRight: 20,
+  },
+  buttonIcon: {
+    position: "absolute",
+    right: 0,
+    top: "50%",
+    marginTop: -16,
   },
 });
