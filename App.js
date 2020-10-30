@@ -8,14 +8,14 @@ import store from "./src/redux/store";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createAppContainer } from "@react-navigation/native";
 import LoggedOut from "./src/screens/LoggedOut";
-// ============ Profile Tab Nav =============
+// ============ Inbox Tab Nav =============
 import Welcome from "./src/screens/Welcome";
 import DeuxiemeLogin from "./src/screens/DeuxiemeLogin";
 import Explore from "./src/screens/Explore";
 import Browse from "./src/screens/Browse";
 import Products from "./src/screens/Products";
 import Settings from "./src/screens/Settings";
-// // ======== End of Profile Tab Nav ==========
+// // ======== End of Inbox Tab Nav ==========
 import LogIn from "./src/screens/LogIn";
 import ForgotPassword from "./src/screens/ForgotPassword";
 import LoggedIn from "./src/screens/LoggedIn";

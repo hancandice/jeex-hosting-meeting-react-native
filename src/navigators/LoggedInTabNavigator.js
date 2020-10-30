@@ -24,7 +24,7 @@ export default function LoggedInTabNavigator() {
           if (route.name === "Explore") {
             iconName = focused ? "ios-compass" : "ios-search";
           } else if (route.name === "Inbox") {
-            iconName = focused ? "ios-list-box" : "ios-list";
+            iconName = focused ? "ios-home" : "md-home";
           } else if (route.name === "Profile") {
             iconName = focused ? "md-contact" : "md-person";
           } else if (route.name === "Saved") {
