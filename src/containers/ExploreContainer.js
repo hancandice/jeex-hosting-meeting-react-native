@@ -11,6 +11,13 @@ import { ScrollView } from "react-native-gesture-handler";
 import listings from "../data/listings";
 import { StatusBar } from "react-native";
 
+// ====== Ignoring warning when sending function through navigation params ==========
+import { LogBox } from "react-native";
+LogBox.ignoreLogs([
+  "Non-serializable values were found in the navigation state",
+]);
+// =============================================
+
 export default class ExploreContainer extends Component {
   static navigationOptions = {
     tabBarLabel: "EXPLORE",

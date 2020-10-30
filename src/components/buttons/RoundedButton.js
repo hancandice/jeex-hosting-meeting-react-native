@@ -18,6 +18,7 @@ export default class RoundedButton extends Component {
       textAlign,
       borderColor,
     } = this.props;
+
     const backgroundColor = background || "transparent";
     const color = textColor || colors.black;
     const fontSize = textSize || 16;
@@ -83,8 +84,8 @@ RoundedButton.propTypes = {
   background: PropTypes.string,
   icon: PropTypes.object,
   handleOnPress: PropTypes.func.isRequired,
-  loading: PropTypes.bool.isRequired,
-  disabled: PropTypes.bool.isRequired,
+  loading: PropTypes.bool,
+  disabled: PropTypes.bool,
   textSize: PropTypes.string,
   textWeight: PropTypes.string,
   iconPosition: PropTypes.string,

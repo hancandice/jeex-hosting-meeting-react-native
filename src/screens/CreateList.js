@@ -161,7 +161,7 @@ export default class CreateList extends Component {
             borderColor="transparent"
             textAlign="left"
             iconPosition="right"
-            disabled={!location}
+            disabled={location ? false : true}
             loading={loading}
             icon={
               <View style={styles.buttonIcon}>
