@@ -6,7 +6,16 @@ import React, { Component } from "react";
 import { Provider } from "react-redux";
 import store from "./src/redux/store";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createAppContainer } from "@react-navigation/native";
 import LoggedOut from "./src/screens/LoggedOut";
+// ============ Profile Tab Nav =============
+import Welcome from "./src/screens/Welcome";
+import DeuxiemeLogin from "./src/screens/DeuxiemeLogin";
+import Explore from "./src/screens/Explore";
+import Browse from "./src/screens/Browse";
+import Products from "./src/screens/Products";
+import Settings from "./src/screens/Settings";
+// // ======== End of Profile Tab Nav ==========
 import LogIn from "./src/screens/LogIn";
 import ForgotPassword from "./src/screens/ForgotPassword";
 import LoggedIn from "./src/screens/LoggedIn";
@@ -24,11 +33,16 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <NavigationContainer>
-          <RootStack.Navigator initialRouteName="LoggedOut" mode="modal">
+          <RootStack.Navigator initialRouteName="Home" mode="modal">
             <RootStack.Screen
               name="Home"
               component={LoggedOut}
               options={LoggedOut.navigationOptions}
+            />
+            <RootStack.Screen
+              name="Welcome"
+              component={Welcome}
+              options={Welcome.navigationOptions}
             />
             <RootStack.Screen
               name="Login"
