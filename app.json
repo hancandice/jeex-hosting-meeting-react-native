@@ -1,10 +1,10 @@
 {
-  "name": "jeex",
-  "displayName": "jeex",
+  "name": "linkey",
+  "displayName": "linkey",
   "expo": {
-    "name": "jeex",
-    "slug": "jeex",
-    "version": "1.0.0",
+    "name": "linkey",
+    "slug": "linkey",
+    "version": "^39.0.3",
     "assetBundlePatterns": ["**/*"]
   }
 }

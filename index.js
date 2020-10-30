@@ -11,3 +11,10 @@ import App from "./App";
 
 StatusBar.setBarStyle("light-content", true);
 registerRootComponent(App);
+
+// "android": "react-native run-android",
+// "ios": "react-native run-ios",
+// "web": "expo start --web",
+// "start": "react-native start",
+// "test": "jest"
+// "main": "index.js",

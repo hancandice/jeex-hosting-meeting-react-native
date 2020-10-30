@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Text, Image, View, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  Text,
+  Image,
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  TouchableNativeFeedback,
+  Platform,
+} from "react-native";
 import colors from "../../styles/colors";
 export default class RoundedButton extends Component {
   render() {
@@ -28,21 +36,51 @@ export default class RoundedButton extends Component {
     const border = borderColor || colors.white;
     const opacityStyle = disabled || loading ? 0.5 : 1;
     const textOpacity = loading ? 0 : 1;
+    const rippleColor =
+      backgroundColor === "transparent" ? color : "rgba(0,0,0,0.4)";
+    const ButtonComponent = (buttonProps) => {
+      if (Platform.OS === "ios") {
+        return (
+          <TouchableOpacity
+            style={[
+              {
+                opacity: opacityStyle,
+                backgroundColor,
+                borderColor: border,
+              },
+              styles.iosWrapper,
+            ]}
+            onPress={handleOnPress}
+            activeOpacity={0.6}
+            disabled={disabled || loading}
+          >
+            {buttonProps.children}
+          </TouchableOpacity>
+        );
+      }
+      return (
+        <View style={[styles.androidWrapper, { borderColor: border }]}>
+          <TouchableNativeFeedback
+            useForeground={true}
+            onPress={handleOnPress}
+            disabled={disabled || loading}
+            background={TouchableNativeFeedback.Ripple(rippleColor, false)}
+          >
+            <View
+              style={[
+                { opacity: opacityStyle, backgroundColor },
+                styles.androidButtonText,
+              ]}
+            >
+              {buttonProps.children}
+            </View>
+          </TouchableNativeFeedback>
+        </View>
+      );
+    };
 
     return (
-      <TouchableOpacity
-        style={[
-          {
-            opacity: opacityStyle,
-            backgroundColor,
-            borderColor: border,
-          },
-          styles.wrapper,
-        ]}
-        onPress={handleOnPress}
-        activeOpacity={0.7}
-        disabled={disabled || loading}
-      >
+      <ButtonComponent>
         <View style={styles.buttonTextWrapper}>
           {iconLocation === "left" && !loading ? (
             <View style={{ opacity: opacityStyle }}>{icon}</View>
@@ -73,7 +111,7 @@ export default class RoundedButton extends Component {
             <View style={{ opacity: opacityStyle }}>{icon}</View>
           ) : null}
         </View>
-      </TouchableOpacity>
+      </ButtonComponent>
     );
   }
 }
@@ -94,7 +132,7 @@ RoundedButton.propTypes = {
 };
 
 const styles = StyleSheet.create({
-  wrapper: {
+  iosWrapper: {
     display: "flex",
     paddingLeft: 20,
     paddingRight: 20,
@@ -103,6 +141,20 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     borderWidth: 1,
     marginBottom: 15,
+    alignItems: "center",
+  },
+  androidWrapper: {
+    overflow: "hidden",
+    borderRadius: 40,
+    borderWidth: 1,
+    marginBottom: 15,
+  },
+  androidButtonText: {
+    display: "flex",
+    paddingLeft: 20,
+    paddingRight: 20,
+    padding: 12,
+    paddingBottom: 12,
     alignItems: "center",
   },
   buttonTextWrapper: {

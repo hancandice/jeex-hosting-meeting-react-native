@@ -90,7 +90,7 @@ export default class CreateList extends Component {
                 labelTextWeight="400"
                 labelColor={colors.grey04}
                 textColor={colors.grey04}
-                placeholder={location}
+                placeholder={this.props.route.params.listing.location}
                 value={location}
                 showCheckmark={false}
                 borderBottomColor={colors.lightGrey04}
