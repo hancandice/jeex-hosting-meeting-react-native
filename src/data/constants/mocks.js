@@ -81,7 +81,7 @@ const profile = {
   email: "camille@yahoo.fr",
   avatar: require("../assets/images/avatar.png"),
   budget: 1000,
-  monthly_cap: 5000,
+  monthly_gap: 5000,
   notifications: true,
   newsletter: false,
 };

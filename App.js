@@ -1,4 +1,7 @@
 import "react-native-gesture-handler";
+import { Asset } from "expo-asset";
+import { AppLoading } from "expo";
+import { Block } from "./src/components";
 import { AppRegistry } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { View } from "react-native";
@@ -27,9 +30,49 @@ import { StatusBar } from "react-native";
 
 const RootStack = createStackNavigator();
 
+const images = [
+  require("./src/data/assets/icons/back.png"),
+  require("./src/data/assets/icons/plants.png"),
+  require("./src/data/assets/icons/seeds.png"),
+  require("./src/data/assets/icons/flowers.png"),
+  require("./src/data/assets/icons/sprayers.png"),
+  require("./src/data/assets/icons/pots.png"),
+  require("./src/data/assets/icons/fertilizers.png"),
+  require("./src/data/assets/images/plants_1.png"),
+  require("./src/data/assets/images/plants_2.png"),
+  require("./src/data/assets/images/plants_3.png"),
+  require("./src/data/assets/images/explore_1.png"),
+  require("./src/data/assets/images/explore_2.png"),
+  require("./src/data/assets/images/explore_3.png"),
+  require("./src/data/assets/images/explore_4.png"),
+  require("./src/data/assets/images/explore_5.png"),
+  require("./src/data/assets/images/explore_6.png"),
+  require("./src/data/assets/images/avatar.png"),
+];
+
 export default class App extends Component {
+  state = {
+    isLoadingComplete: false,
+  };
+
+  handleResourcesAsync = async () => {
+    const cacheImages = images.map((image) => {
+      return Asset.fromModule(image).downloadAsync();
+    });
+
+    return Promise.all(cacheImages);
+  };
+
   render() {
-    // StatusBar.setBarStyle("light-content", true);
+    if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
+      return (
+        <AppLoading
+          startAsync={this.handleResourcesAsync}
+          onError={(error) => console.warn(error)}
+          onFinish={() => this.setState({ isLoadingComplete: true })}
+        />
+      );
+    }
     return (
       <Provider store={store}>
         <NavigationContainer>

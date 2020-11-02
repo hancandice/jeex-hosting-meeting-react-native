@@ -1,31 +1,29 @@
-import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import React, { Component } from "react";
+import { StyleSheet, View, Image } from "react-native";
+import { Button, Block, Text } from "../components";
 import colors from "../styles/colors";
 import NavBarButton from "../components/buttons/NavBarButton";
 
-export default class Welcome extends React.Component {
+export default class Welcome extends Component {
   static navigationOptions = ({ navigation }) => ({
-    headerStyle: {},
+    // headerStyle: {},
     // headerBackImage: <Image />,
-    headerBackTitle: null,
-    headerLeftContainerStyle: {},
-    headerRightContainerStyle: {},
+    // headerBackTitle: null,
+    // headerLeftContainerStyle: {},
+    // headerRightContainerStyle: {},
   });
 
   render() {
     return (
-      <View style={styles.container}>
+      <Block center middle>
+        <Block center middle flex={0.3}>
+          <Text h1>세상을 연결하는 </Text>
+          <Text h1>열쇠</Text>
+        </Block>
         <Text>Welcome</Text>
-      </View>
+      </Block>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.green01,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+const styles = StyleSheet.create({});
