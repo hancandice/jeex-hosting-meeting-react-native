@@ -18,6 +18,7 @@ import Explore from "./src/screens/Explore";
 import Browse from "./src/screens/Browse";
 import Products from "./src/screens/Products";
 import Settings from "./src/screens/Settings";
+import SignUp from "./src/screens/SignUp";
 // // ======== End of Inbox Tab Nav ==========
 import LogIn from "./src/screens/LogIn";
 import ForgotPassword from "./src/screens/ForgotPassword";
@@ -76,7 +77,7 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <NavigationContainer>
-          <RootStack.Navigator initialRouteName="Home" mode="modal">
+          <RootStack.Navigator initialRouteName="Welcome" mode="modal">
             <RootStack.Screen
               name="Home"
               component={LoggedOut}
@@ -86,6 +87,16 @@ export default class App extends Component {
               name="Welcome"
               component={Welcome}
               options={Welcome.navigationOptions}
+            />
+            <RootStack.Screen
+              name="DeuxiemeLogin"
+              component={DeuxiemeLogin}
+              options={DeuxiemeLogin.navigationOptions}
+            />
+            <RootStack.Screen
+              name="SignUp"
+              component={SignUp}
+              options={SignUp.navigationOptions}
             />
             <RootStack.Screen
               name="Login"

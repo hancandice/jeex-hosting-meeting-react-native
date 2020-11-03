@@ -16,5 +16,5 @@ registerRootComponent(App);
 // "ios": "react-native run-ios",
 // "web": "expo start --web",
 // "start": "react-native start",
-// "test": "jest"
+// "test": "jest",
 // "main": "index.js",
