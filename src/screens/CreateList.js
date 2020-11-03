@@ -29,6 +29,7 @@ export default class CreateList extends Component {
         <Ionicons name="md-close-circle" size={30} color={colors.green01} />
       </TouchableOpacity>
     ),
+
     headerStyle: styles.headerStyle,
   });
 
@@ -193,7 +194,7 @@ const styles = StyleSheet.create({
   },
   closeButton: {
     position: "absolute",
-    left: 20,
+    left: -10,
   },
   scrollView: {},
   heading: {

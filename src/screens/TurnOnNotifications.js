@@ -68,10 +68,10 @@ export default class TurnOnNotifications extends Component {
       <View style={styles.wrapper}>
         <View style={styles.content}>
           <Icon name="comments-o" size={46} style={styles.icon} />
-          <Text style={styles.title}>Turn on notifications?</Text>
+          <Text style={styles.title}>알림 켜기</Text>
           <Text style={styles.description}>
-            We can let you know when someone messages you, or notify you about
-            other important account activity
+            누군가 회원님께 메시지를 보냈을 때나 기타 다른 중요한 계정 활동에
+            관한 알림을 받을 수 있습니다.
           </Text>
           <TouchableHighlight
             style={[
@@ -88,7 +88,7 @@ export default class TurnOnNotifications extends Component {
             underlayColor={colors.green02}
           >
             <Text style={[styles.buttonText, { color: colors.white }]}>
-              Yes, notify me
+              네, 알림을 켤게요
             </Text>
           </TouchableHighlight>
           <TouchableHighlight
@@ -106,7 +106,7 @@ export default class TurnOnNotifications extends Component {
             underlayColor={colors.lightGrey02}
           >
             <Text style={[styles.buttonText, { color: colors.green01 }]}>
-              Skip
+              다음에 할게요
             </Text>
           </TouchableHighlight>
         </View>
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
   },
   skipButton: {
     borderColor: colors.green01,
-    width: 100,
+    width: 160,
     borderWidth: 2,
     paddingTop: 12,
     paddingBottom: 12,

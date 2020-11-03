@@ -8,7 +8,6 @@ import {
   StatusBar,
   FlatList,
   StyleSheet,
-  View,
   Image,
   Animated,
   ScrollView,
@@ -46,7 +45,7 @@ class Welcome extends Component {
           space="between"
         >
           <Text h2 light>
-            Terms of Service
+            링키 서비스 이용약관
           </Text>
           <ScrollView style={{ marginVertical: theme.sizes.padding }}>
             <Text
@@ -122,7 +121,7 @@ class Welcome extends Component {
               onPress={() => this.setState({ showTerms: false })}
             >
               <Text center white>
-                I understand
+                이해하고 동의합니다
               </Text>
             </Button>
           </Block>
@@ -217,12 +216,12 @@ class Welcome extends Component {
         <Block middle flex={0.5} margin={[0, theme.sizes.padding * 2]}>
           <Button gradient onPress={() => navigation.navigate("DeuxiemeLogin")}>
             <Text center semibold white>
-              Login
+              로그인
             </Text>
           </Button>
           <Button shadow onPress={() => navigation.navigate("SignUp")}>
             <Text center semibold>
-              Signup
+              회원가입
             </Text>
           </Button>
           <Button
@@ -233,7 +232,7 @@ class Welcome extends Component {
             }
           >
             <Text center caption gray>
-              Terms of service
+              링키 서비스 이용약관
             </Text>
           </Button>
         </Block>

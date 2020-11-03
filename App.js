@@ -27,8 +27,8 @@ import LoggedInTabNavigator from "./src/navigators/LoggedInTabNavigator";
 import TurnOnNotifications from "./src/screens/TurnOnNotifications";
 import CreateList from "./src/screens/CreateList";
 import colors from "./src/styles/colors";
-import { StatusBar } from "react-native";
-
+import { StatusBar, Image } from "react-native";
+import { theme } from "./src/data/constants";
 const RootStack = createStackNavigator();
 
 const images = [
@@ -77,7 +77,32 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <NavigationContainer>
-          <RootStack.Navigator initialRouteName="Welcome" mode="modal">
+          <RootStack.Navigator
+            initialRouteName="Welcome"
+            mode="modal"
+            screenOptions={{
+              headerStyle: {
+                height: theme.sizes.base * 4,
+                backgroundColor: theme.colors.white,
+                borderBottomColor: "transparent",
+                elevation: 0,
+              },
+              headerBackImage: () => (
+                <Image source={require("./src/data/assets/icons/back.png")} />
+              ),
+              headerBackTitle: () => null,
+              headerLeftContainerStyle: {
+                alignItems: "center",
+                marginLeft: theme.sizes.base * 2,
+                paddingRight: theme.sizes.base,
+              },
+              headerRightContainerStyle: {
+                alignItems: "center",
+                paddingRight: theme.sizes.base,
+              },
+              cardStyle: { backgroundColor: colors.white },
+            }}
+          >
             <RootStack.Screen
               name="Home"
               component={LoggedOut}
@@ -92,6 +117,11 @@ export default class App extends Component {
               name="DeuxiemeLogin"
               component={DeuxiemeLogin}
               options={DeuxiemeLogin.navigationOptions}
+            />
+            <RootStack.Screen
+              name="Browse"
+              component={Browse}
+              options={Browse.navigationOptions}
             />
             <RootStack.Screen
               name="SignUp"

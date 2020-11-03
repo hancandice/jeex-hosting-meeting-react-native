@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
 import colors from "../styles/colors";
 import { transparentHeaderStyle } from "../styles/navigation";
@@ -11,6 +10,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Button,
+  StatusBar,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import RoundedButton from "../components/buttons/RoundedButton";
