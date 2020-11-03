@@ -148,7 +148,7 @@ class Welcome extends Component {
           <Image
             source={item.source}
             resizeMode="contain"
-            style={{ width, height: height / 2.5, overflow: "visible" }}
+            style={{ width, height: height / 2, overflow: "visible" }}
           />
         )}
         onScroll={Animated.event(
@@ -181,7 +181,7 @@ class Welcome extends Component {
             <Block
               animated
               flex={false}
-              color="gray"
+              color="whitesmoke"
               key={`step-${index}`}
               style={[styles.steps, { opacity }]}
             />
