@@ -14,6 +14,7 @@ import LoggedOut from "./src/screens/LoggedOut";
 // ============ Inbox Tab Nav =============
 import Welcome from "./src/screens/Welcome";
 import DeuxiemeLogin from "./src/screens/DeuxiemeLogin";
+import Forgot from "./src/screens/Forgot";
 import Explore from "./src/screens/Explore";
 import Browse from "./src/screens/Browse";
 import Products from "./src/screens/Products";
@@ -117,6 +118,11 @@ export default class App extends Component {
               name="DeuxiemeLogin"
               component={DeuxiemeLogin}
               options={DeuxiemeLogin.navigationOptions}
+            />
+            <RootStack.Screen
+              name="Forgot"
+              component={Forgot}
+              options={Forgot.navigationOptions}
             />
             <RootStack.Screen
               name="Browse"

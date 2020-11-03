@@ -13,7 +13,6 @@ import {
   ScrollView,
 } from "react-native";
 import { theme } from "../data/constants";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 
 const { width, height } = Dimensions.get("window");
 
