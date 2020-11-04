@@ -79,7 +79,7 @@ export default class App extends Component {
       <Provider store={store}>
         <NavigationContainer>
           <RootStack.Navigator
-            initialRouteName="Welcome"
+            initialRouteName="Home"
             mode="modal"
             screenOptions={{
               headerStyle: {
