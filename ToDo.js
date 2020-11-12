@@ -1,2 +1,1 @@
-// from 1:42:53
-// Forgot Password 만들기
+//  From # 25 iOS App Icons and Splash Screen
