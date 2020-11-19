@@ -1,35 +1,34 @@
-import "react-native-gesture-handler";
-import { Asset } from "expo-asset";
-import { AppLoading } from "expo";
-import { Block } from "./src/components";
-import { AppRegistry } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { View } from "react-native";
-import React, { Component } from "react";
-import { Provider } from "react-redux";
-import store from "./src/redux/store";
 import { createStackNavigator } from "@react-navigation/stack";
-import { createAppContainer } from "@react-navigation/native";
-import LoggedOut from "./src/screens/LoggedOut";
-// ============ Inbox Tab Nav =============
-import Welcome from "./src/screens/Welcome";
+import { AppLoading } from "expo";
+import { Asset } from "expo-asset";
+import React, { Component } from "react";
+import { Image } from "react-native";
+import "react-native-gesture-handler";
+import { Provider } from "react-redux";
+// ========== Apollo ===========
+import { ApolloProvider, HttpLink } from "@apollo/client";
+import { InMemoryCache } from "@apollo/client/cache";
+import { ApolloClient } from "@apollo/client/core";
+import { NETWORK_INTERFACE } from "./src/config";
+import { gql } from "@apollo/client";
+// ========== End of Apollo ===========
+import { theme } from "./src/data/constants";
+import store from "./src/redux/store";
+import Browse from "./src/screens/Browse";
+import CreateList from "./src/screens/CreateList";
 import DeuxiemeLogin from "./src/screens/DeuxiemeLogin";
 import Forgot from "./src/screens/Forgot";
-import Explore from "./src/screens/Explore";
-import Browse from "./src/screens/Browse";
-import Products from "./src/screens/Products";
-import Settings from "./src/screens/Settings";
-import SignUp from "./src/screens/SignUp";
-// // ======== End of Inbox Tab Nav ==========
-import LogIn from "./src/screens/LogIn";
 import ForgotPassword from "./src/screens/ForgotPassword";
 import LoggedIn from "./src/screens/LoggedIn";
-import LoggedInTabNavigator from "./src/navigators/LoggedInTabNavigator";
+import LoggedOut from "./src/screens/LoggedOut";
+// // ======== End of Inbox Tab Nav ==========
+import LogIn from "./src/screens/LogIn";
+import SignUp from "./src/screens/SignUp";
 import TurnOnNotifications from "./src/screens/TurnOnNotifications";
-import CreateList from "./src/screens/CreateList";
+// ============ Inbox Tab Nav =============
+import Welcome from "./src/screens/Welcome";
 import colors from "./src/styles/colors";
-import { StatusBar, Image } from "react-native";
-import { theme } from "./src/data/constants";
 const RootStack = createStackNavigator();
 
 const images = [
@@ -51,6 +50,11 @@ const images = [
   require("./src/data/assets/images/explore_6.png"),
   require("./src/data/assets/images/avatar.png"),
 ];
+
+const apolloClient = new ApolloClient({
+  uri: NETWORK_INTERFACE,
+  cache: new InMemoryCache(),
+});
 
 export default class App extends Component {
   state = {
@@ -77,90 +81,92 @@ export default class App extends Component {
     }
     return (
       <Provider store={store}>
-        <NavigationContainer>
-          <RootStack.Navigator
-            initialRouteName="Home"
-            mode="modal"
-            screenOptions={{
-              headerStyle: {
-                height: theme.sizes.base * 4,
-                backgroundColor: theme.colors.white,
-                borderBottomColor: "transparent",
-                elevation: 0,
-              },
-              headerBackImage: () => (
-                <Image source={require("./src/data/assets/icons/back.png")} />
-              ),
-              headerBackTitle: () => null,
-              headerLeftContainerStyle: {
-                alignItems: "center",
-                marginLeft: theme.sizes.base * 2,
-                paddingRight: theme.sizes.base,
-              },
-              headerRightContainerStyle: {
-                alignItems: "center",
-                paddingRight: theme.sizes.base,
-              },
-              cardStyle: { backgroundColor: colors.white },
-            }}
-          >
-            <RootStack.Screen
-              name="Home"
-              component={LoggedOut}
-              options={LoggedOut.navigationOptions}
-            />
-            <RootStack.Screen
-              name="Welcome"
-              component={Welcome}
-              options={Welcome.navigationOptions}
-            />
-            <RootStack.Screen
-              name="DeuxiemeLogin"
-              component={DeuxiemeLogin}
-              options={DeuxiemeLogin.navigationOptions}
-            />
-            <RootStack.Screen
-              name="Forgot"
-              component={Forgot}
-              options={Forgot.navigationOptions}
-            />
-            <RootStack.Screen
-              name="Browse"
-              component={Browse}
-              options={Browse.navigationOptions}
-            />
-            <RootStack.Screen
-              name="SignUp"
-              component={SignUp}
-              options={SignUp.navigationOptions}
-            />
-            <RootStack.Screen
-              name="Login"
-              component={LogIn}
-              options={LogIn.navigationOptions}
-            />
-            <RootStack.Screen
-              name="ForgotPassword"
-              component={ForgotPassword}
-              options={ForgotPassword.navigationOptions}
-            />
-            <RootStack.Screen
-              name="LoggedIn"
-              component={LoggedIn}
-              options={LoggedIn.navigationOptions}
-            />
-            <RootStack.Screen
-              name="CreateList"
-              component={CreateList}
-              options={CreateList.navigationOptions}
-            />
-            <RootStack.Screen
-              name="TurnOnNotifications"
-              component={TurnOnNotifications}
-              options={TurnOnNotifications.navigationOptions}
-            />
-          </RootStack.Navigator>
-        </NavigationContainer>
+        <ApolloProvider client={apolloClient}>
+          <NavigationContainer>
+            <RootStack.Navigator
+              initialRouteName="Home"
+              mode="modal"
+              screenOptions={{
+                headerStyle: {
+                  height: theme.sizes.base * 4,
+                  backgroundColor: theme.colors.white,
+                  borderBottomColor: "transparent",
+                  elevation: 0,
+                },
+                headerBackImage: () => (
+                  <Image source={require("./src/data/assets/icons/back.png")} />
+                ),
+                headerBackTitle: () => null,
+                headerLeftContainerStyle: {
+                  alignItems: "center",
+                  marginLeft: theme.sizes.base * 2,
+                  paddingRight: theme.sizes.base,
+                },
+                headerRightContainerStyle: {
+                  alignItems: "center",
+                  paddingRight: theme.sizes.base,
+                },
+                cardStyle: { backgroundColor: colors.white },
+              }}
+            >
+              <RootStack.Screen
+                name="Home"
+                component={LoggedOut}
+                options={LoggedOut.navigationOptions}
+              />
+              <RootStack.Screen
+                name="Welcome"
+                component={Welcome}
+                options={Welcome.navigationOptions}
+              />
+              <RootStack.Screen
+                name="DeuxiemeLogin"
+                component={DeuxiemeLogin}
+                options={DeuxiemeLogin.navigationOptions}
+              />
+              <RootStack.Screen
+                name="Forgot"
+                component={Forgot}
+                options={Forgot.navigationOptions}
+              />
+              <RootStack.Screen
+                name="Browse"
+                component={Browse}
+                options={Browse.navigationOptions}
+              />
+              <RootStack.Screen
+                name="SignUp"
+                component={SignUp}
+                options={SignUp.navigationOptions}
+              />
+              <RootStack.Screen
+                name="Login"
+                component={LogIn}
+                options={LogIn.navigationOptions}
+              />
+              <RootStack.Screen
+                name="ForgotPassword"
+                component={ForgotPassword}
+                options={ForgotPassword.navigationOptions}
+              />
+              <RootStack.Screen
+                name="LoggedIn"
+                component={LoggedIn}
+                options={LoggedIn.navigationOptions}
+              />
+              <RootStack.Screen
+                name="CreateList"
+                component={CreateList}
+                options={CreateList.navigationOptions}
+              />
+              <RootStack.Screen
+                name="TurnOnNotifications"
+                component={TurnOnNotifications}
+                options={TurnOnNotifications.navigationOptions}
+              />
+            </RootStack.Navigator>
+          </NavigationContainer>
+        </ApolloProvider>
       </Provider>
     );
   }

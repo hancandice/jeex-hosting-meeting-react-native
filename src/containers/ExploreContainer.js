@@ -1,24 +1,20 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import colors from "../styles/colors";
-import SearchBar from "../components/SearchBar";
+import { Image, LogBox, StatusBar, StyleSheet, Text, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import Categories from "../components/explore/Categories";
 import Listings from "../components/explore/Listings";
-import RoundedButton from "../components/buttons/RoundedButton";
+import SearchBar from "../components/SearchBar";
 import categoriesList from "../data/categories";
-import { ScrollView } from "react-native-gesture-handler";
 import listings from "../data/listings";
-import { StatusBar } from "react-native";
+import colors from "../styles/colors";
+import { graphql, useQuery } from "react-apollo";
+import { gql } from "@apollo/client";
 
-// ====== Ignoring warning when sending function through navigation params ==========
-import { LogBox } from "react-native";
 LogBox.ignoreLogs([
   "Non-serializable values were found in the navigation state",
 ]);
-// =============================================
 
-export default class ExploreContainer extends Component {
+class ExploreContainer extends Component {
   static navigationOptions = {
     tabBarLabel: "EXPLORE",
   };
@@ -78,6 +74,7 @@ export default class ExploreContainer extends Component {
 
   render() {
     StatusBar.setBarStyle("dark-content", true);
+
     return (
       <View style={styles.wrapper}>
         <SearchBar />
@@ -136,3 +133,17 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
 });
+
+const ListingsQuery = gql`
+  query {
+    multipleListing {
+      _id
+      title
+      description
+    }
+  }
+`;
+
+const ExploreContainerWrapper = graphql(ListingsQuery)(ExploreContainer);
+
+export default ExploreContainer;
