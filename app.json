@@ -1,10 +1,28 @@
 {
-  "name": "linkey",
-  "displayName": "linkey",
   "expo": {
-    "name": "linkey",
-    "slug": "linkey",
-    "version": "^39.0.3",
-    "assetBundlePatterns": ["**/*"]
+    "name": "linkey_v1",
+    "slug": "linkey_v1",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "description": "Linkey App V1",
+    "githubUrl": "https://github.com/hancandice/jeex-hosting-meeting-react-native.git"
   }
 }
