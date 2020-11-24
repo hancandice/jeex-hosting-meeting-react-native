@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "linkey_v1",
-    "slug": "linkey_v1",
+    "name": "linkey_wireframing_login_listing",
+    "slug": "linkey_wireframing_login_listing",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,7 +22,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "Linkey App V1",
+    "description": "링키 로그인 파트와 랜딩 리스팅 화면 와이어 프레이밍 ",
     "githubUrl": "https://github.com/hancandice/jeex-hosting-meeting-react-native.git"
   }
 }
